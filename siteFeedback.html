@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="h5/css/screenBig.css" />
+    <script type="text/javascript" src="h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript">
+    function navPhone() {
+        if ($('.navPhone').css('display') == 'none') { //如果是隐藏的
+            $('.navPhone').css('display', 'block'); //显示
+        } else if ($('.navPhone').css('display') == 'block') { //如果是显示的
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+
+    }
+    </script>
+    <script>
+    $(function() {
+
+        $('#btnSubmit').click(function() {
+            var title = $('#model_topic').val();
+            var content = $('#model_content').val();
+            var phone = $('#model_phone').val();
+            var email = $('#model_email').val();
+
+            if (title == "") {
+                alert("标题不能为空");
+                return;
+            }
+
+            if (checklen(title) > 40) {
+                alert("标题太长,请控制在20个字以内");
+                return;
+            }
+
+            if (content == '') {
+                alert('内容不能为空');
+                return;
+            }
+
+            if (checklen(content) > 2000) {
+                alert("内容太长,请控制在1000个字以内");
+                return;
+            }
+
+
+
+            if (email.length > 100) {
+                alert('邮箱过长');
+                return;
+            }
+
+            if (!/^(.+@.+\..+)?$/.test(email)) {
+                alert('不正确的邮箱格式');
+                return;
+            }
+            $("#askform").ajaxSubmit({
+                cache: false,
+                type: "post",
+                dataType: "json",
+                success: function(data) {
+
+                    if (data.success) {
+                        alert("提交成功");
+
+                        hidediv1();
+                    } else {
+                        alert("提交失败");
+
+                    }
+                }
+            });
+
+
+
+        });
+
+    });
+
+    function checklen(value) {
+        var lenE = value.length;
+        var lenC = 0;
+        var CJK = value.match(/[\u4E00-\u9FA5\uF900-\uFA2D]/g);
+        if (CJK != null) lenC += CJK.length;
+        return lenE + lenC;
+    }
+    </script>
+</head>
+
+<body class="blueBg">
+    <div class="wrapper">
+        <!--  头部  -->
+        <!--  头部  -->
+        <header>
+            <div class="headerBox">
+                <div class="logo">
+                    <a href="/index/index.action">
+                        <img src="h5/images/logo.png">
+                    </a>
+                </div>
+                <nav class="navPhone">
+                    <ul>
+                        <li id="indexliph"><a id="indexp" href="index/index.html">首页</a></li>
+                        <li id="onlinecourseliph"><a id="onlinecoursep" href="onlinecourse.html">培训中心</a></li>
+                        <li id="contactliph"><a id="contactp" href="survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliph"> <a id="newsp" href="news/news.html">信息中心</a></li>
+                        <li id="pointliph"><a id="pointp" href="point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <nav class="navPc">
+                    <ul>
+                        <li id="indexliPc"><a id="index" href="index/index.html">首页</a></li>
+                        <li id="onlinecourseliPc"><a id="onlinecourse" href="onlinecourse.html">培训中心</a></li>
+                        <li id="contactliPc"><a id="contact" href="survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliPc"><a id="news" href="news/news.html">信息中心</a></li>
+                        <li id="pointliPc"><a id="point" href="point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <aside>
+                    <a href="javascript:void(0);" onClick="navPhone()" class="message displayNone"><img id="image" src="h5/images/icon_menu.png"></a>
+                    <a href="msg/msg.html" class="message">
+                        <div style="vertical-align: top;display: inline-block; width: 35px;height: 28px; background: url(images/element.png) no-repeat 0px -28px;">
+                            <span id="newMsg" style="display:none;"></span></div>
+                    </a>
+                    <a href="user/user.html" class="photo"><img src="images/default_headPhoto.png"></a>
+                    <a href="#" class="exit">[退出]</a>
+                </aside>
+            </div>
+            <script>
+            window.onorientationchange = function() {
+                switch (window.orientation) {
+                    case -90:
+                    case 90:
+                        window.location.reload();
+                        window.location.reload();
+                    case 0:
+                    case 180:
+                        window.location.reload();
+                        break;
+                }
+            }
+            </script>
+            <script type="text/javascript">
+            document.onclick = function(event) {
+                var e = event || window.event;
+                if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image' && (e.srcElement || e.target).id != 'Cmenu1' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu3' && (e.srcElement || e.target).id != 'Cmenu4' && (e.srcElement || e.target).id != 'Cmenu5') {
+
+                    $('.navPhone').css('display', 'none'); //隐藏
+                }
+            }
+            </script>
+        </header>
+        <!--  头部 -End  -
+<!--  头部 -End  -->
+        <!--  内容  -->
+        <div class="content blueBg" style="padding:20px 0;">
+            <h4 class="ideaTitle">意见反馈</h4>
+            <form id='askform' method="post" action="siteFeedback.html" enctype="multipart/form-data">
+                <input type="hidden" name="fromUrl" value="" id="fromUrl" />
+                <input type="hidden" value="" id="istrue" />
+                <ul class="ideaBox">
+                    <li>
+                        <span>*</span><span class="title0">标题：</span>
+                        <input id="model_topic" name="model.topic" type="text" placeholder="请输入标题" maxlength="100">
+                    </li>
+                    <li>
+                        <span>*</span><span class="title0">内容：</span>
+                        <textarea id="model_content" name="model.content" placeholder="请输入意见内容"></textarea>
+                    </li>
+                    <li>
+                        <span>*</span><span class="title0">上传图片：</span>
+                        <input type="file" name="upload" />
+                    </li>
+                    <li>
+                        <span>*</span><span class="title0">联系邮箱：</span>
+                        <input id="model_email" name="model.email" type="text" maxlength="100">
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="commonStyle uploadingBtn" id='btnSubmit'>提交</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <!--  内容 -End  -->
+        <script>
+        var fromUrl = window.location.href;
+        fromUrl = fromUrl.replace("http://", "");
+        var firstIndex = fromUrl.indexOf("/");
+        if (firstIndex != -1) {
+            fromUrl = fromUrl.substr(firstIndex);
+        } else {
+            fromUrl = "/index/index.action";
+        }
+        $("#siteFeedbackLink").attr("href", $("#siteFeedbackLink").attr("href") + "?fromUrl=" + encodeURIComponent(fromUrl));
+
+
+        $('input').placeholder();
+        </script>
+        <div id="forgetfoot" class="forget">
+            <div class="forgetTitle">
+                <h2>联系客服</h2>
+                <a class="close-reveal-modal"></a>
+            </div>
+            <div class="forgetText">
+                <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+                <p>1.发送邮件： A4000@kitchenlife.com.cn</p>
+                <p>2.致电：0512-57701727</p>
+                <p id="time">工作时间：</p>
+                <p id="times">上午09:00-12:30</p>
+                <p id="times">下午13:30-17:30</p>
+            </div>
+        </div>
+        <!--  底部  -->
+        <footer class="fixed">
+            <p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.</p>
+            <aside>
+                <a href="#" title="后台管理">后台管理</a>&nbsp;|
+                <a href="siteFeedback.html" id="siteFeedbackLink" title="意见反馈">意见反馈&nbsp;&nbsp;</a>|
+                <a target="_blank" href="#" id="xinshouzhinan" title="新手指南">新手指南&nbsp;&nbsp;</a>|
+                <a href="javascript:void(0);" data-reveal-id="forgetfoot">联系客服&nbsp;&nbsp;</a>
+            </aside>
+            <p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+            <!---->
+        </footer>
+        <!--  底部 -End  -->
+    </div>
+</body>
+
+</html>

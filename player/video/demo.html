@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video.js | HTML5 Video Player</title>
+
+  <!-- Chang URLs to wherever Video.js files will be hosted -->
+  <link href="video-js.css" rel="stylesheet" type="text/css">
+  <!-- video.js must be in the <head> for older IEs to work. -->
+  <script src="video.js"></script>
+  <script type="text/javascript" src="/js/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+
+  <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
+  <script>
+    videojs.options.flash.swf = "video-js.swf";
+    
+	function moveNext(){		
+		var curTime = $.cookie("video_location");		
+		var offset = 3;
+		if(curTime){			
+		  var myPlayer = getPlayer();	 			  
+		  myPlayer.play();
+		  setTimeout(function(){		  	
+			myPlayer.currentTime(curTime - offset);   
+		  },100);
+		}
+	}
+	
+	function pause(){
+		var player = getPlayer();
+		if(player.paused()){
+			player.play();
+		}
+		else
+			player.pause();
+	}
+	function getPlayer(){
+		return  videojs("example_video_1");
+	}
+	window.onbeforeunload = function(){				
+		saveLocation();				
+	}
+	function saveLocation(){
+		var curTime = getPlayer().currentTime();
+		$.cookie("video_location",curTime);
+	}
+	function doExit(){
+		//saveLocation();		
+		window.close();
+	}
+	function initVideo(poster,video){
+		//getPlayer().attr("poster",poster);
+		//getPlayer().attr("src",video);
+	}
+	$(fucntion(){
+		getPlayer().attr("src",video);
+	});
+  </script>
+
+
+</head>
+<body>
+
+  <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+      poster="http://video-js.zencoder.com/oceans-clip.png"
+      data-setup="{}">
+    <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+    <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+    <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+    <!-- Tracks need an ending tag thanks to IE9 
+    <track kind="captions" src="demo.captions.vtt" srclang="zh" label="English"></track>
+    <track kind="subtitles" src="demo.captions.vtt" srclang="zh" label="English"></track>
+     -->
+  	<!--
+	<button onclick="moveNext()" >Continue </button>
+	
+	<button onclick="doExit()" >Save and Exit </button>
+	<button onclick="pause()" >Pause </button>-->
+  </video>
+
+</body>
+</html>
+

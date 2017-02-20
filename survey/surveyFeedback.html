@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function navPhone() {
+        if ($('.navPhone').css('display') == 'none') { //如果是隐藏的
+            $('.navPhone').css('display', 'block'); //显示
+        } else if ($('.navPhone').css('display') == 'block') { //如果是显示的
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+
+    }
+    $(document).ready(function() {
+        $("#contact").addClass("nav_hover");
+        $("#contactp").addClass("phoneNavOnclick");
+    });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#tabletest tr:even").addClass("whiteBg");
+        $("#tabletest tr:odd").addClass("tdBlueBg");
+    });
+
+    function sub() {
+        $("#searchForm").submit();
+
+
+    }
+    </script>
+    <script type="text/javascript">
+    function changeTop(id) {
+        $("#dataId").val(id);
+        $("#searchForm").attr("action", "/survey/surveyFeedback!changeTop.action");
+        $("#searchForm").submit();
+    }
+
+    function showResult(id) {
+        window.open('/survey/survey!showResult.action?id=' + id, '_player');
+    }
+    </script>
+    <!--  <script>
+   ;
+   ! function() {
+   
+       laydate.skin('qianhuang');
+   
+       laydate({
+           elem: '#demo'
+       })
+   
+   }();
+   </script> -->
+</head>
+
+<body curPage="3_2_1" queryUrl="/survey/surveyFeedback!doList.action">
+    <div class="wrapper">
+        <!--  头部  -->
+        <!--  头部  -->
+        <header>
+            <div class="headerBox">
+                <div class="logo">
+                    <a href="../index/index.html">
+                        <img src="../h5/images/logo.png">
+                    </a>
+                </div>
+                <nav class="navPhone">
+                    <ul>
+                        <li id="indexliph"><a id="indexp" href="../index/index.html">首页</a></li>
+                        <li id="onlinecourseliph"><a id="onlinecoursep" href="../onlinecourse.html">培训中心</a></li>
+                        <li id="contactliph"><a id="contactp" href="../survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliph"> <a id="newsp" href="../news/news.html">信息中心</a></li>
+                        <li id="pointliph"><a id="pointp" href="../point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="../follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <nav class="navPc">
+                    <ul>
+                        <li id="indexliPc"><a id="index" href="../index/index.html">首页</a></li>
+                        <li id="onlinecourseliPc"><a id="onlinecourse" href="../onlinecourse.html">培训中心</a></li>
+                        <li id="contactliPc"><a id="contact" href=".../survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliPc"><a id="news" href="../news/news.html">信息中心</a></li>
+                        <li id="pointliPc"><a id="point" href="../point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="../follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <aside>
+                    <a href="javascript:void(0);" onClick="navPhone()" class="message displayNone"><img id="image" src="../h5/images/icon_menu.png"></a>
+                    <a href="../msg/msg.html" class="message">
+                        <div style="vertical-align: top;display: inline-block; width: 35px;height: 28px; background: url(../images/element.png) no-repeat 0px -28px;">
+                            <span id="newMsg" style="display:none;"></span></div>
+                    </a>
+                    <a href="../user/user.html" class="photo"><img src="../images/default_headPhoto.png"></a>
+                    <a href="#" class="exit">[退出]</a>
+                </aside>
+            </div>
+            <script>
+            window.onorientationchange = function() {
+                switch (window.orientation) {
+                    case -90:
+                    case 90:
+                        window.location.reload();
+                        window.location.reload();
+                    case 0:
+                    case 180:
+                        window.location.reload();
+                        break;
+                }
+            }
+            </script>
+            <script type="text/javascript">
+            document.onclick = function(event) {
+                var e = event || window.event;
+                if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image' && (e.srcElement || e.target).id != 'Cmenu1' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu3' && (e.srcElement || e.target).id != 'Cmenu4' && (e.srcElement || e.target).id != 'Cmenu5') {
+
+                    $('.navPhone').css('display', 'none'); //隐藏
+                }
+            }
+            </script>
+        </header>
+        <!--  头部 -End  -
+  <!--  头部 -End  -->
+        <!--  内容  -->
+        <div class="content">
+            <section class="whiteBg_border">
+                <!--二级导航-->
+                <ul class="two_menu">
+                    <li><a href="/survey/surveyFeedback!doList.action" class="two_menu_hover">问卷调查</a></li>
+                </ul>
+            </section>
+            <!--搜索-->
+            <section class="whiteBg_border0">
+                <ul class="searchPc">
+                    <form action="/survey/surveyFeedback!doList.action" method="get" id="searchForm">
+                        <li>
+                            <h6>问卷状态：</h6>
+                            <select name="keyStatus" onchange="$('#searchForm').submit();">
+                                <option value="0">全部</option>
+                                <option value="1">未填写</option>
+                                <option value="2">已填写</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h6>调查时间：</h6>
+                            <span id="position">
+             <input placeholder="请输入日期" class="laydate-icon" onclick="laydate()" value='' name="keyStartDate">
+             </span> -
+                            <span id="position">
+                 <input placeholder="请输入日期" class="laydate-icon" onclick="laydate()" value=''  name="keyEndDate">
+             </span>
+                        </li>
+                        <li>
+                            <h6>关键字：</h6>
+                            <span id="position">
+             <input name="topic" value="" placeholder="请输入课程名称" id="topic"/>
+             </span>
+                        </li>
+                        <li>
+                            <h6></h6><a href="javascript:void(0);" class="search_btn radius5" onclick="sub();">搜索</a></li>
+                </ul>
+                </form>
+                <form action="/survey/surveyFeedback!doList.action" method="get" id="searchForm">
+                    <ul class="searchPhone">
+                        <li>
+                            <h6>问卷状态：</h6>
+                            <select name="keyStatus" onchange="$('#searchForm').submit();">
+                                <option value="0">全部</option>
+                                <option value="1">未填写</option>
+                                <option value="2">已填写</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h6>调查时间从：</h6>
+                            <span id="position">
+            <input placeholder="请输入日期" class="laydate-icon" onclick="laydate()" value='' name="keyStartDate" >
+            </span>
+                        </li>
+                        <li>
+                            <h6>到：</h6>
+                            <span id="position">
+            <input placeholder="请输入日期" class="laydate-icon" onclick="laydate()" value=''   name="keyEndDate" >
+            </span>
+                        </li>
+                        <li>
+                            <h6>关键字：</h6>
+                            <span id="position">
+             <input name="topic" value="" placeholder="请输入课程名称" id="topic"/>
+             </span>
+                        </li>
+                        <li>
+                            <h6></h6><a href="javascript:void(0);" style="margin-top:0px;" class="search_btn radius5" onclick="sub();">搜索</a></li>
+                    </ul>
+                </form>
+            </section>
+            <section class="blueBg">
+                <!--课程列表-->
+                <div class="onlineLearn">
+                    <div class="onlineLearn_title">
+                        <h1>问卷列表</h1>
+                        <div class="operationBtn">
+                            <select name="keySort" onchange="$('#searchForm').submit();">
+                                <option value="1">按发布时间</option>
+                                <option value="2">按参与人数</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="onlineLearn_Table">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="radius5" style="min-width:700px;" id="tabletest">
+                            <tr>
+                                <th class="tdMinWidth">操作</th>
+                                <th>问卷调查标题</th>
+                                <th>调查开始时间</th>
+                                <th>调查截止时间</th>
+                                <th>参与人数</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="doEdit.html" target="_blank" class="radius5 btn_common1 btn_start">填写问卷</a>
+                                </td>
+                                <td>测试</td>
+                                <td class="tabletextcenter">2017-02-06</td>
+                                <td class="tabletextcenter">2017-02-24</td>
+                                <td class="tabletextcenter">0</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="radius5 btn_common1 btn_good " href="showResult.html">查看结果</a>
+                                </td>
+                                <td>测试</td>
+                                <td class="tabletextcenter">2017-02-05</td>
+                                <td class="tabletextcenter">2017-03-04</td>
+                                <td class="tabletextcenter">1</td>
+                        </table>
+                    </div>
+                    <!-- pagesBox start -->
+                    <!-- pagesBox end -->
+                </div>
+            </section>
+        </div>
+        <!--  内容 -End  -->
+        <!--  底部  -->
+        <script>
+        var fromUrl = window.location.href;
+        fromUrl = fromUrl.replace("http://", "");
+        var firstIndex = fromUrl.indexOf("/");
+        if (firstIndex != -1) {
+            fromUrl = fromUrl.substr(firstIndex);
+        } else {
+            fromUrl = "/index/index.action";
+        }
+        $("#siteFeedbackLink").attr("href", $("#siteFeedbackLink").attr("href") + "?fromUrl=" + encodeURIComponent(fromUrl));
+
+
+        $('input').placeholder();
+        </script>
+        <div id="forgetfoot" class="forget">
+            <div class="forgetTitle">
+                <h2>联系客服</h2>
+                <a class="close-reveal-modal"></a>
+            </div>
+            <div class="forgetText">
+                <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+                <p>1.发送邮件： A4000@kitchenlife.com.cn</p>
+                <p>2.致电：0512-57701727</p>
+                <p id="time">工作时间：</p>
+                <p id="times">上午09:00-12:30</p>
+                <p id="times">下午13:30-17:30</p>
+            </div>
+        </div>
+        <!--  底部  -->
+        <footer class="fixed">
+            <p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.</p>
+            <aside>
+                <a href="#" title="后台管理">后台管理</a>&nbsp;|
+                <a href="../siteFeedback.html" id="siteFeedbackLink" title="意见反馈">意见反馈&nbsp;&nbsp;</a>|
+                <a target="_blank" href="#" id="xinshouzhinan" title="新手指南">新手指南&nbsp;&nbsp;</a>|
+                <a href="javascript:void(0);" data-reveal-id="forgetfoot">联系客服&nbsp;&nbsp;</a>
+            </aside>
+            <p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+            <!---->
+        </footer>
+        <!--  底部 -End  -->
+        <!--  底部 -End  -->
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        $("#course_status,#course_courseType").on("change", function() {
+            var keyStatus = $("#keyStatus").val();
+            var keyStartDate = $("#keyStartDate").val();
+            var keyEndDate = $("#keyEndDate").val();
+            var survey_topic = $("#topic").val();
+            $("#searchForm").submit();
+            $("#keyStatus").val(keyStatus);
+            $("#keyStartDate").val(keyStartDate);
+            $("#keyEndDate").val(keyEndDate);
+            $("#topic").val(survey_topic);
+        });
+        $('input[type="text"]').placeholder();
+    });
+
+    function getCriteria() {
+        var topic = $.trim($("#topic").val());
+        var param = "&status=" + $("#keyStatus").val();
+        if (topic != '') {
+            param += "&topic=" + topic;
+        }
+        return param;
+    }
+    </script>
+</body>
+
+</html>

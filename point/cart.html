@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../h5/css/shopping-cart.css" media="all" rel="stylesheet" type="text/css">
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function navPhone() {
+        if ($('.navPhone').css('display') == 'none') { //如果是隐藏的
+            $('.navPhone').css('display', 'block'); //显示
+        } else if ($('.navPhone').css('display') == 'block') { //如果是显示的
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+
+    }
+    $(document).ready(function() {
+        $("#point").addClass("nav_hover");
+        $("#cart").addClass("two_menu_hover");
+        $("#pointp").addClass("phoneNavOnclick");
+    });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--  头部  -->
+        <!--  头部  -->
+        <header>
+            <div class="headerBox">
+                <div class="logo">
+                    <a href="../index/index.html">
+                        <img src="../h5/images/logo.png">
+                    </a>
+                </div>
+                <nav class="navPhone">
+                    <ul>
+                        <li id="indexliph"><a id="indexp" href="../index/index.html">首页</a></li>
+                        <li id="onlinecourseliph"><a id="onlinecoursep" href="../onlinecourse.html">培训中心</a></li>
+                        <li id="contactliph"><a id="contactp" href="../survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliph"> <a id="newsp" href="../news/news.html">信息中心</a></li>
+                        <li id="pointliph"><a id="pointp" href="../point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="../follow!doList.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <nav class="navPc">
+                    <ul>
+                        <li id="indexliPc"><a id="index" href="../index/index.html">首页</a></li>
+                        <li id="onlinecourseliPc"><a id="onlinecourse" href="../onlinecourse.html">培训中心</a></li>
+                        <li id="contactliPc"><a id="contact" href="../survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliPc"><a id="news" href="../news/news.html">信息中心</a></li>
+                        <li id="pointliPc"><a id="point" href="../point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="../follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <aside>
+                    <a href="javascript:void(0);" onClick="navPhone()" class="message displayNone"><img id="image" src="../h5/images/icon_menu.png"></a>
+                    <a href=".../msg/ms.html" class="message">
+                        <div style="vertical-align: top;display: inline-block; width: 35px;height: 28px; background: url(../images/element.png) no-repeat 0px -28px;">
+                            <span id="newMsg" style="display:none;"></span></div>
+                    </a>
+                    <a href="../user/user.html" class="photo"><img src="../images/default_headPhoto.png"></a>
+                    <a href="#" class="exit">[退出]</a>
+                </aside>
+            </div>
+            <script>
+            window.onorientationchange = function() {
+                switch (window.orientation) {
+                    case -90:
+                    case 90:
+                        window.location.reload();
+                        window.location.reload();
+                    case 0:
+                    case 180:
+                        window.location.reload();
+                        break;
+                }
+            }
+            </script>
+            <script type="text/javascript">
+            document.onclick = function(event) {
+                var e = event || window.event;
+                if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image' && (e.srcElement || e.target).id != 'Cmenu1' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu3' && (e.srcElement || e.target).id != 'Cmenu4' && (e.srcElement || e.target).id != 'Cmenu5') {
+
+                    $('.navPhone').css('display', 'none'); //隐藏
+                }
+            }
+            </script>
+        </header>
+        <!--  头部 -End  -
+  <!--  头部 -End  -->
+        <!--  内容  -->
+        <div class="content">
+            <section class="whiteBg_border">
+                <!--二级导航-->
+                <ul class="two_menu">
+                    <li><a id="gift" href="gift.html">礼品柜</a></li>
+                    <li><a id="cart" href="cart.html">购物车</a></li>
+                    <li><a id="pointrule" href="pointrule.html">积分规则</a></li>
+                    <li><a id="pointDetail" href="pointDetail.html">我的积分</a></li>
+                    <li><a id="exchangeOrder" href="exchangeOrder.html">兑换历史</a></li>
+                </ul>
+            </section>
+            <section class="blueBg">
+                <!--课程列表-->
+                <div class="onlineLearn">
+                    <div class="onlineLearn_title">
+                        <form id="formSearch" method="get" action="#">
+                            <h1>购物车列表</h1>
+                        </form>
+                    </div>
+                    <div class="onlineLearn_Table" style="padding-left:1%;">
+                        <!--购物车item S-->
+                        <div style="display:block">
+                            <div class="shop-group">
+                                <div class="shop-group-item">
+                                    <ul class="shp-cart-list">
+                                        <li>
+                                            <div class="items">
+                                                <div class="shp-cart-item-core shop-cart-display  ">
+                                                    <a class="cart-product-cell-1" href="">
+                                                        <img class="cart-photo-thumb" alt="" src="../upload/gift/04bedc53-1df8-4699-8a23-c4f6c1841972.jpg">
+                                                    </a>
+                                                    <div class="cart-product-cell-2">
+                                                        <div class="cart-product-name"><a><span></span></a></div>
+                                                        <div class="cart-product-cell-3">
+                                                            <span class="shp-cart-item-price">积分:<font id="point_"></font></span>
+                                                            <span class="shp-cart-item-price">小计:<font id="total_">0</font></span>
+                                                        </div>
+                                                        <!-- price move to here end -->
+                                                        <div class="shp-cart-opt ">
+                                                            <div class="quantity-wrapper customize-qua">
+                                                                <a id="preCount_" class="quantity-decrease disabled" href="javascript:preCount()">-</a>
+                                                                <input id="count_" type="text" class="quantity" size="4" value="1" readOnly="readOnly">
+                                                                <a class="quantity-increase" href="javascript:nextCount()">+</a>
+                                                            </div>
+                                                            <div class="wastebin-container">
+                                                                <div class="wastebin" onclick="delCart('')">
+                                                                    <i class="wastebin-up"></i>
+                                                                    <i class="wastebin-down"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!--底部结算S-->
+                                        <div id="payment_p" style="display:block">
+                                            <div id="paymentp"></div>
+                                            <div class="payment-total-bar payment-total-bar-new" style="position:relative" id="payment">
+                                                <div class="shp-cart-info shp-cart-info-new">
+                                                    <strong class="shp-cart-total">合计:<span class="bottom-bar-price" id="cart_realPrice" style="font-size: 16px;"></span></strong>
+                                                    <span class="sale-off sale-off-new  bottom-total-price" style="font-size: 20.7273px;">剩余积分:<span class="" id="cart_oriPrice" style="font-size: 20.7273px;">2104</span>
+                                                    </span>
+                                                </div>
+                                                <a class="btn-right-block btn-right-block-new" id="submit" style="background: rgb(192, 0, 0);" onsubmit="return check()">确认兑换(<span id="quantity">1</span>)</a>
+                                            </div>
+                                        </div>
+                                        <!--底部结算E-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                        function check() {
+
+                            if (2104 >= 0) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                        </script>
+                        <script>
+                        //数量减一
+                        function preCount(id) {
+                            var point = $("#point_" + id).text();
+                            var count = $("#count_" + id).val();
+                            if (count > 1) {
+                                var total = point * (count - 1);
+                                $("#count_" + id).val(count - 1);
+                                $("#total_" + id).text(total);
+                                var cartTotal = $("#cart_realPrice").text();
+                                $("#cart_realPrice").text(cartTotal - point);
+                                var quantity = $("#quantity").text();
+                                $("#quantity").text(quantity - 1);
+                                if (count <= 2) {
+                                    $("#preCount_" + id).addClass("disabled");
+                                } else {
+                                    $("#preCount_" + id).removeClass("disabled");
+                                }
+
+                                modifyCart(id, count - 1);
+                            }
+                        }
+
+                        //数量加一
+                        function nextCount(id) {
+                            var point = parseInt($("#point_" + id).text());
+                            var count = parseInt($("#count_" + id).val());
+
+
+
+                            var total = point * (count + 1);
+                            $("#count_" + id).val(count + 1);
+                            $("#total_" + id).text(total);
+                            var cartTotal = parseInt($("#cart_realPrice").text());
+                            $("#cart_realPrice").text(cartTotal + point);
+                            var quantity = parseInt($("#quantity").text());
+                            $("#quantity").text(quantity + 1);
+                            $("#preCount_" + id).removeClass("disabled");
+
+                            modifyCart(id, count + 1);
+                        }
+                        </script>
+                        <!--购物车itemE-->
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!--  内容 -End  -->
+        <!--  底部  -->
+        <script>
+        var fromUrl = window.location.href;
+        fromUrl = fromUrl.replace("http://", "");
+        var firstIndex = fromUrl.indexOf("/");
+        if (firstIndex != -1) {
+            fromUrl = fromUrl.substr(firstIndex);
+        } else {
+            fromUrl = "/index/index.action";
+        }
+        $("#siteFeedbackLink").attr("href", $("#siteFeedbackLink").attr("href") + "?fromUrl=" + encodeURIComponent(fromUrl));
+
+
+        $('input').placeholder();
+        </script>
+        <div id="forgetfoot" class="forget">
+            <div class="forgetTitle">
+                <h2>联系客服</h2>
+                <a class="close-reveal-modal"></a>
+            </div>
+            <div class="forgetText">
+                <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+                <p>1.发送邮件： A4000@kitchenlife.com.cn</p>
+                <p>2.致电：0512-57701727</p>
+                <p id="time">工作时间：</p>
+                <p id="times">上午09:00-12:30</p>
+                <p id="times">下午13:30-17:30</p>
+            </div>
+        </div>
+        <!--  底部  -->
+        <footer class="fixed">
+            <p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.</p>
+            <aside>
+                <a href="#" title="后台管理">后台管理</a>&nbsp;|
+                <a href="../siteFeedback.html" id="siteFeedbackLink" title="意见反馈">意见反馈&nbsp;&nbsp;</a>|
+                <a target="_blank" href="#" id="xinshouzhinan" title="新手指南">新手指南&nbsp;&nbsp;</a>|
+                <a href="javascript:void(0);" data-reveal-id="forgetfoot">联系客服&nbsp;&nbsp;</a>
+            </aside>
+            <p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+            <!---->
+        </footer>
+        <!--  底部 -End  -->
+        <script>
+        $(function() {
+            $("#submit").click(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "/point/exchangeOrder!doSave.action",
+                    cache: false,
+                    dataType: "json",
+                    data: {
+                        type: "gift"
+                    },
+                    success: function(msg) {
+                        if (msg.success == true) {
+                            location.href = "/point/exchangeOrder!doMyOrderList.action";
+                        } else {
+                            alert(msg.msg);
+                        }
+                    },
+                    error: function() {
+                        alert("fail");
+                    }
+                });
+                return false;
+            });
+        });
+        </script>
+        <!--  底部 -End  -->
+        <script type="text/javascript">
+        var giftArr = [];
+        var qArr = [];
+        $(function() {
+            $("input[id^=count_]").keyup(function() {
+                var v = $.trim(this.value);
+                v = v == '' ? 0 : v;
+                if (isNaN(v) || parseInt(v) < 0) {
+                    alert('请输入正整数数字！');
+                    return false;
+                } else {
+                    var tid = this.id.replace('count_', '#total_');
+                    var pid = this.id.replace('count_', '#point_');
+                    var p = parseInt($.trim($(pid).text()));
+                    $(tid).text(parseInt(v) * p);
+                    var f = summaryTotal();
+                    if (f && v > 0) {
+                        modifyCart(this.id.replace('count_', ''), v);
+                    }
+                }
+            });
+            $("#checkall").click(function() {
+                var c = this.checked;
+                jQuery('.checkColumn').each(function() {
+                    var self = jQuery(this);
+                    if (!self.prop('disabled')) {
+                        self.prop('checked', c);
+                    }
+                });
+                summaryTotal();
+            });
+            $(".checkColumn").click(summaryTotal);
+            $(".exchangebt").click(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "/point/exchangeOrder!doSave.action",
+                    cache: false,
+                    dataType: "json",
+                    data: {
+                        type: "gift",
+                        quantity: qArr.toString(),
+                        giftId: giftArr.toString()
+                    },
+                    success: function(msg) {
+                        if (msg.success == true) {
+                            location.href = "/point/exchangeOrder!doMyOrderList.action";
+                        } else {
+                            alert(msg.msg);
+                        }
+                    },
+                    error: function() {
+                        alert("fail");
+                    }
+                });
+                return false;
+            });
+        });
+
+        function summaryTotal() {
+            giftArr = [];
+            qArr = [];
+            var q = 0;
+            $("input[id^=count_]").each(function() {
+                var cid = this.id.replace('count_', '#chb_');
+                if ($(cid)[0].checked) {
+                    var v = $.trim($(this).val());
+                    v = v == '' ? 0 : v;
+                    q += parseInt(v);
+                    qArr.push(v);
+                    giftArr.push($(cid).val());
+                }
+            });
+            $("#quantity").text(q);
+            if (q <= 0) {
+                $(".exchangebt").attr("disabled", true);
+                $(".exchangebt").addClass("disable");
+                $("#total").text(0);
+                $("#remain").text(2104);
+                return false;
+            }
+            var t = 0;
+            $("span[id^=total_]").each(function() {
+                var cid = this.id.replace('total_', '#chb_');
+                if ($(cid)[0].checked) {
+                    t += parseInt($.trim($(this).text()));
+                }
+            });
+            $("#total").text(t);
+            var r = 2104 - t;
+            $("#remain").text(r);
+            if (r < 0) {
+                alert('您并没有那么多积分，请删减一些礼品！');
+                window.setTimeout(function() {
+                    $(".tipPop,.tipPop_bg").fadeOut()
+                }, 1200);
+                $(".exchangebt").attr("disabled", true);
+                $(".exchangebt").addClass("disable");
+                return false;
+            } else {
+                $(".exchangebt").attr("disabled", false);
+                $(".exchangebt").removeClass("disable");
+                return true;
+            }
+        }
+        //删除购物车中的物品信息
+        function delCart(id) {
+            if (!id) {
+                return;
+            }
+            if (confirm('您确认要删除该礼品！')) {
+                $.ajax({
+                    type: "POST",
+                    url: "/point/exchange!doModifyCart.action",
+                    dataType: "json",
+                    data: {
+                        ids: id,
+                        type: 'del'
+                    },
+                    success: function(msg) {
+                        if (msg.success == true) {
+                            $("#row_" + id).slideUp("normal", function() {
+                                $("#row_" + id).detach();
+                                summaryTotal();
+
+                            });
+                        } else {
+                            alert(msg.msg);
+                        }
+                        window.location.href = window.location.href;
+                    },
+                    error: function() {
+                        alert('fail');
+                    }
+                });
+            }
+        }
+        //ajax 修改购物车数量
+        function modifyCart(giftid, quantity) {
+            $.ajax({
+                type: "POST",
+                url: "/point/exchange!doModifyCart.action",
+                dataType: "json",
+                data: {
+                    giftId: giftid,
+                    quantity: quantity,
+                    type: 'modify'
+                },
+                success: function(msg) {
+                    if (msg.success == true) {
+                        loadCartHtml();
+                    } else {
+                        alert(msg.msg);
+                    }
+                },
+                error: function() {
+                    alert('fail');
+                }
+            });
+        }
+        </script>
+    </div>
+</body>
+
+</html>

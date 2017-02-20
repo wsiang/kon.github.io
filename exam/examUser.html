@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script src="../js/countdown/jquery.countdown.min.js"></script>
+</head>
+<script type="text/javascript">
+function reloadParent() {
+    var parentWin = window.opener;
+    if (parentWin) {
+        if (parentWin.location.href.indexOf('exam/exam!doMyList.action') != -1) {
+            parentWin.location.reload();
+        }
+    }
+}
+window.onbeforeunload = function() {
+    reloadParent();
+}
+
+var maxQ = 4;
+
+function updateQInfo(currentQ) {
+
+    $("#currentQSpan").text(currentQ);
+    if (currentQ < maxQ) {
+        $("#nextBtn").show();
+    } else {
+        $("#nextBtn").hide();
+    }
+    if (currentQ > 1) {
+        $("#prevBtn").show();
+    } else {
+        $("#prevBtn").hide();
+    }
+    if (currentQ == maxQ) {
+        $("#submitBtn").show();
+    } else {
+        $("#submitBtn").hide();
+    }
+}
+
+/*
+ * 页面调用
+ */
+
+$(function() {
+    updateQInfo(1);
+    // 初始化checkbox
+    $(".checkbox").each(function() {
+        var _this = $(this),
+            _checked = _this.prop("checked");
+        if (_checked) {
+            _this.parent().addClass("checked");
+        }
+    });
+
+    // 多选框点击作用
+    $(".checkboxBox").click(function() {
+        var _this = $(this),
+            _radio = _this.find(".checkbox"),
+            _checked = _radio.prop("checked");
+
+        if (_checked) {
+            _this.addClass("checked");
+        } else {
+            _this.removeClass("checked");
+        }
+    });
+
+    // 初始化radio
+    $(".radio").each(function() {
+        var _this = $(this),
+            _checked = _this.prop("checked");
+
+        if (_checked) {
+            _this.parent().addClass("checked");
+        }
+    });
+    // 单选框点击作用
+    $(".radioBox").click(function() {
+        var _this = $(this),
+            _radio = _this.find(".radio"),
+            _checked = _radio.prop("checked");
+
+        if (_radio.prop("disabled")) {
+            return;
+        }
+
+        _this.parents("tr").siblings().find(".radioBox").removeClass("checked");
+        if (_checked) {
+            _this.addClass("checked");
+        }
+
+        _radio.blur();
+    });
+    //show 第一题
+    $("#div_q_1").show();
+
+    var totalTimes = 1200;
+    var shortly = new Date();
+    shortly.setSeconds(shortly.getSeconds() + totalTimes);
+    $('#shortly').countdown({
+        until: shortly,
+        format: 'HMS',
+        layout: '<span>{hnn}：{mnn}：{snn}</span>',
+        onExpiry: function() {
+
+            cbd_alert_tip("考试时间到了！<br/>系统正在自动交卷，请稍侯...");
+            var questions = $("div[id^='div_q']");
+            var userAnswer = "";
+            for (var i = 0; i < questions.length; i++) {
+                var options = questions.eq(i).find("input:checked");
+                var arr = [];
+                for (var j = 0; j < options.length; j++) {
+                    var optionName = options.eq(j).parents("label").attr("rCode").substring(0, 1);
+                    arr.push(optionName);
+                }
+                var qAnswer = arr.sort().join('');
+                if (i == questions.length - 1) {
+                    userAnswer = userAnswer + (qAnswer == "" ? " " : qAnswer);
+                } else {
+                    userAnswer = userAnswer + qAnswer + "|";
+                }
+            }
+            $("#examRecord_answers").val(userAnswer);
+            setTimeout(function() {
+                $.ajax({
+                    url: "/exam/exam!getExamStatus.action",
+                    type: "post",
+                    ansync: false,
+                    data: {
+                        "examId": '3287'
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.msg == "lock") {
+                            cbd_alert("抱歉，本次考试暂时被锁定");
+                        } else if (data.msg == "limit") {
+                            cbd_alert("抱歉，你的考试次数已用尽");
+                        } else if (data.msg == "error") {
+                            cbd_alert("抱歉，你无权参与该考试");
+                        } else {
+                            $("#examForm").submit();
+                        }
+                    },
+                    error: function() {
+                        cbd_alert("提交失败");
+                    }
+                });
+            }, 1000);
+
+        },
+        onTick: function(periods) {
+
+        }
+    });
+
+    var canExam = "true";
+    if (canExam != 'true') {
+        cbd_alert_tip("您的考试次数已用完");
+        setTimeout(function() {
+            window.close();
+        }, 2000);
+    }
+});
+
+function changeProgress(progressValue) {
+    $(".sur_progress_tip").first().text(progressValue);
+    $(".sur_progress_num_cur").first().text(progressValue);
+    var qSize = $("div[id^='div_q']").length;
+    var width = Number(progressValue / qSize).toFixed(2) * 100 + '%';
+    $(".sur_progress_lineBox_box").css('width', width);
+}
+
+function doPreQ() {
+    var curQ = $("div[id^='div_q']:visible").first();
+    var divValue = Number(curQ.attr("divValue"));
+    if (divValue > 1) {
+        curQ.hide();
+        showQuesion(divValue - 1);
+        updateQInfo(divValue - 1);
+    } else {
+        alert("这是第一题.");
+    }
+}
+
+
+function submitForm() {
+    var questions = $("div[id^='div_q']");
+    var userAnswer = "";
+    var completed = true;
+    for (var i = 0; i < questions.length; i++) {
+        var options = questions.eq(i).find("input:checked");
+
+        var arr = [];
+        for (var j = 0; j < options.length; j++) {
+            var optionName = options.eq(j).parents("li").attr("rCode").substring(0, 1);
+            arr.push(optionName);
+        }
+        var qAnswer = arr.sort().join('');
+        if (i == questions.length - 1) {
+            userAnswer = userAnswer + (qAnswer == "" ? " " : qAnswer);
+        } else {
+            userAnswer = userAnswer + qAnswer + "|";
+        }
+    }
+    $("#examRecord_answers").val(userAnswer);
+
+    var infoMsg;
+    if (completed) {
+        infoMsg = "你确定要提交吗?";
+    } else {
+        infoMsg = "你确定要提交吗?";
+    }
+
+    if (confirm(infoMsg)) {
+        $.ajax({
+            url: "/exam/exam!getExamStatus.action",
+            type: "post",
+            ansync: false,
+            data: {
+                "examId": '3287'
+            },
+            dataType: "json",
+            success: function(data) {
+
+                if (data.msg == "lock") {
+                    alert("抱歉，本次考试暂时被锁定");
+                } else if (data.msg == "limit") {
+                    alert("抱歉，你的考试次数已用尽");
+                } else if (data.msg == "error") {
+                    alert("抱歉，你无权参与该考试");
+                } else {
+
+                    $("#examForm").submit();
+                }
+            },
+            error: function() {
+                alert("提交失败");
+            }
+        });
+    }
+
+
+    <!--
+    cbd_confirm(infoMsg, function() {
+
+        $.ajax({
+            url: "/exam/exam!getExamStatus.action",
+            type: "post",
+            ansync: false,
+            data: {
+                "examId": '3287'
+            },
+            dataType: "json",
+            success: function(data) {
+
+                if (data.msg == "lock") {
+                    alert("抱歉，本次考试暂时被锁定");
+                } else if (data.msg == "limit") {
+                    alert("抱歉，你的考试次数已用尽");
+                } else if (data.msg == "error") {
+                    alert("抱歉，你无权参与该考试");
+                } else {
+
+                    $("#examForm").submit();
+                }
+            },
+            error: function() {
+                alert("提交失败");
+            }
+        });
+    });
+    -->
+
+
+
+}
+
+
+function nextQ() {
+    var curQ = $("div[id^='div_q']:visible").first();
+    var divValue = Number(curQ.attr("divValue"));
+    var options = curQ.find(":input:checked");
+    if (options.length == 0) {
+
+        alert("请答题!");
+        return;
+
+    } else if (divValue == maxQ) {
+        alert("这是最后一题!");
+        return;
+    }
+    curQ.hide();
+
+    $("#question_div").hide();
+    $("#current_q").val(divValue);
+    showQuesion(divValue + 1);
+    updateQInfo(divValue + 1);
+}
+
+function resultToNextQ() {
+    var q = $("#current_q").val();
+    showQuesion(Number(q) + 1);
+}
+
+function showQuesion(index) {
+
+    if (index <= maxQ) {
+        $("#div_answer_right").hide();
+        $("#div_answer_wrong").hide();
+        $("#question_div").show();
+        $("#div_q_" + index).show();
+    }
+
+
+    if (index >= 2) {
+        $("#div_q_" + index).find("#div_pre_btn").show();
+    }
+}
+
+function prePage() {
+    var curQ = $("#current_q").val();
+    showQuesion(curQ);
+    if (qSize == curQ) {
+        $("#div_q_" + curQ).find("#div_next_btn").hide();
+        $("#div_q_" + curQ).find("#div_pre_btn").show();
+        $("#div_q_" + curQ).find("#div_sumbit_btn").show();
+    }
+}
+</script>
+
+<body style="background-color:#f5f5f5;">
+    <div class="wrapper">
+        <!--  头部  -->
+        <form id="examForm" action="/exam/exam!doExamSubmit.action" method="post">
+            <input type="hidden" name="examRecord.id" value="" id="examRecord_id" />
+            <input type="hidden" name="examRecord.user.id" value="" id="examRecord_user_id" />
+            <input type="hidden" name="examRecord.exam.id" value="" id="examRecord_exam_id" />
+            <input type="hidden" name="examRecord.answers" value="" id="examRecord_answers" />
+            <input type="hidden" name="examId" value="3287" />
+            <div class="examTitle">
+                <h1 class="title">企业文化测试</h1>
+                <div class="examlable">
+                    <p class="time">距离考试结束还有 <span id="shortly"></span></p>
+                    <p class="examPage"><span id="currentQSpan">1</span>/<span>4</span></p>
+                </div>
+            </div>
+            <!--  头部 -End  -->
+            <!--  内容  -->
+            <div class="examContent" style="" id="div_q_1" divValue="1">
+                <input type="hidden" id="q_answer_1" value='B' />
+                <ul>
+                    <ol>【单选题】听到&ldquo;你们樱花是日本品牌吧。&rdquo;您如何回应：</ol>
+                    <li rCode="A">
+                        <input type="radio" name="radio_1" /> &#65;.樱花品牌来自日本，创立以来口碑良好
+                    </li>
+                    <li rCode="B">
+                        <input type="radio" name="radio_1" /> &#66;.樱花品牌来自宝岛台湾，工厂设在苏州，1995年就作出了国内第一台免拆洗油烟机
+                    </li>
+                    <li rCode="C">
+                        <input type="radio" name="radio_1" /> &#67;.樱花品牌来自中国，总部设在广东。
+                    </li>
+                    <li rCode="D">
+                        <input type="radio" name="radio_1" /> &#68;.樱花品牌来自国外，产品都是进口的产品。
+                    </li>
+                </ul>
+                <input type="hidden" name="randomOptions[0]" value="ABCD" />
+                <input type="hidden" name="questionIds[0]" value="5415" />
+            </div>
+            <div class="examContent" style="display: none;" id="div_q_2" divValue="2">
+                <input type="hidden" id="q_answer_2" value='AC' />
+                <ul>
+                    <ol>【多选题】樱花国内两大生产基地都是在哪里？</ol>
+                    <li rCode="A">
+                        <input type="checkbox" name="checkbox_2" /> &#65;.江苏省苏州市昆山青阳南路 1 号
+                    </li>
+                    <li rCode="B">
+                        <input type="checkbox" name="checkbox_2" /> &#66;.浙江省宁波市
+                    </li>
+                    <li rCode="C">
+                        <input type="checkbox" name="checkbox_2" /> &#67;.广东省佛山市，顺德市容桂区， 容桂大道 2 号。
+                    </li>
+                    <li rCode="D">
+                        <input type="checkbox" name="checkbox_2" /> &#68;.江苏省无锡市
+                    </li>
+                </ul>
+                <input type="hidden" name="randomOptions[1]" value="ABCD" />
+                <input type="hidden" name="questionIds[1]" value="5416" />
+            </div>
+            <div class="examContent" style="display: none;" id="div_q_3" divValue="3">
+                <input type="hidden" id="q_answer_3" value='ABCD' />
+                <ul>
+                    <ol>【多选题】樱花的特色&ldquo;三永久&rdquo;服务是什么，坚持了多少年？</ol>
+                    <li rCode="A">
+                        <input type="checkbox" name="checkbox_3" /> &#65;.樱花油烟机永久免费送油网
+                    </li>
+                    <li rCode="B">
+                        <input type="checkbox" name="checkbox_3" /> &#66;.樱花热水器永久免费安全检查
+                    </li>
+                    <li rCode="C">
+                        <input type="checkbox" name="checkbox_3" /> &#67;.樱花橱柜永久免费保养
+                    </li>
+                    <li rCode="D">
+                        <input type="checkbox" name="checkbox_3" /> &#68;.已经坚持服务了近40年
+                    </li>
+                </ul>
+                <input type="hidden" name="randomOptions[2]" value="ABCD" />
+                <input type="hidden" name="questionIds[2]" value="5417" />
+            </div>
+            <div class="examContent" style="display: none;" id="div_q_4" divValue="4">
+                <input type="hidden" id="q_answer_4" value='AD' />
+                <ul>
+                    <ol>【多选题】樱花的品牌来源于客户的需求，您是怎么理解的？</ol>
+                    <li rCode="A">
+                        <input type="checkbox" name="checkbox_4" /> &#65;.樱花的任何产品都是建立在消费者的根本需求上开发的。
+                    </li>
+                    <li rCode="B">
+                        <input type="checkbox" name="checkbox_4" /> &#66;.樱花产品就是广告宣传的好。
+                    </li>
+                    <li rCode="C">
+                        <input type="checkbox" name="checkbox_4" /> &#67;.樱花产品就是赠品多。
+                    </li>
+                    <li rCode="D">
+                        <input type="checkbox" name="checkbox_4" /> &#68;.樱花定期定时帮您去检查安全隐患，定期维护保养，定期寄送礼物。
+                    </li>
+                </ul>
+                <input type="hidden" name="randomOptions[3]" value="ABCD" />
+                <input type="hidden" name="questionIds[3]" value="5418" />
+            </div>
+            <div class="examBtn">
+                <a href="javascript:void(0);" id="prevBtn" style="display:none;" onclick="javascript:doPreQ();">上一题</a>
+                <a href="javascript:void(0);" id="nextBtn" style="display:none;" class="ex_btn ex_nextBtn" onclick="javascript:nextQ();">下一题</a>
+                <!-- <a href="javascript:void(0);" id="submitBtn" style="display:none;" onclick="javascript:submitForm();">提交</a> --><a href="examResult.html" id="submitBtn" style="display:none;"  >提交</a>
+            </div>
+    </div>
+    </form>
+</body>
+
+</html>

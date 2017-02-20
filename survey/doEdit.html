@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+</head>
+<script type="text/javascript">
+function reloadParent() {
+    var parentWin = window.opener;
+    if (parentWin) {
+        if (parentWin.location.href.indexOf('survey/surveyFeedback!doList.action') != -1) {
+            parentWin.location.reload();
+        }
+    }
+}
+
+window.onbeforeunload = function() {
+    reloadParent();
+}
+
+$(function() {
+    var f_status = "0";
+    if (f_status == "1") {
+        disableAll();
+        alert("您已完成本次问卷调查，谢谢您的参与");
+    }
+
+    $("#submitBtn").click(function() {
+        var $btn = $(this);
+        var qindex = checkFeedbackForm();
+        if (qindex != "0") {
+            scrollToQuestion(qindex);
+        } else {
+            doExt(true);
+            $.ajax({
+                url: $("#feedbackForm").attr('action'),
+                type: "POST",
+                data: $("#feedbackForm").serializeArray(),
+                async: false,
+                dataType: "json",
+                success: function(data) {
+                    if (data.success) {
+                        alert("提交成功   感谢您的参与");
+                        var _h = $(document.body).height();
+                        $(".block_bg").css("height", _h + 15 + "px");
+                        $(".block_bg").show();
+                        $btn.hide();
+
+                        disableAll();
+
+                        setTimeout(function() {
+                            _fn_close();
+                            window.close();
+                        }, 2000);
+                    } else {
+                        //重复提交
+                        if (data.obj && data.obj == '1') {
+                            alert("您之前已完成过本次问卷调查，此次的提交无效，谢谢您的参与");
+                            disableAll();
+                        } else {
+                            alert("提交失败！");
+                            doExt(false);
+                        }
+                    }
+                },
+                error: function() {
+                    alert("提交失败！");
+                    doExt(false);
+                }
+            });
+        }
+
+        return false;
+    });
+    //提交前后设置input的默认提示
+    function doExt(b) {
+        $("input.fn_inText").each(function() {
+            if (b && $(this).attr("alt") != '' && $(this).val() == $(this).attr("alt")) {
+                $(this).val('');
+            }
+            if (!b && $(this).attr("alt") != '' && $.trim($(this).val()) == '') {
+                $(this).css("color", "#A6A6A6").val($(this).attr("alt"));
+            }
+        });
+    }
+
+    function scrollToQuestion(q) {
+        var $q = $("div.q_opt[qindex='" + q + "']").addClass('dtl_light');
+        var scroll_offset = $q.offset();
+        $("body,html").animate({
+            scrollTop: scroll_offset.top + $q.height() / 2 - $(window).height() / 2
+        }, 500);
+    }
+
+    $("div.q_opt").click(function() {
+        $(this).removeClass('dtl_light');
+    });
+
+    $("input.fn_inText").each(function() {
+        if ($(this).attr("alt") != '' && $.trim($(this).val()) == '') {
+            $(this).css("color", "#A6A6A6").val($(this).attr("alt"));
+        }
+    });
+
+    $("input.fn_inText").click(function() {
+        if ($(this).attr("alt") != '' && $(this).val() == $(this).attr("alt")) {
+            $(this).css("color", "#806242").val('');
+        }
+    });
+    $("input.fn_inText").blur(function() {
+        if ($(this).attr("alt") != '' && $.trim($(this).val()) == '') {
+            $(this).css("color", "#A6A6A6").val($(this).attr("alt"));
+        }
+    });
+
+    $("input.score").click(function() {
+        if ($(this).val() != '5') {
+            $(this).parents('.opt_radio').siblings(".opt_txt").show();
+        } else {
+            $(this).parents('.opt_radio').siblings(".opt_txt").hide().find("input.fn_inText").val('');
+        }
+    });
+    //检查未做的题目，返回题目序号
+    function checkFeedbackForm() {
+        var qindex = "0";
+        $(".q_opt").each(function(ind) {
+            if (qindex == "0") {
+                var qtype = $(this).attr("qtype");
+                if (qtype == 'score' || qtype == 'assert' || qtype == 'option1' || qtype == 'option2' || qtype == 'option3') {
+                    if ($(this).find("input:checked").size() == 0) {
+                        qindex = $(this).attr('qindex');
+                    } else {
+                        if (qtype == 'option3' && $(this).find("input:checked").val() == 'A') {
+                            if ($(this).find("table input:checked").size() == 0) {
+                                qindex = $(this).attr('qindex');
+                            }
+                        }
+                    }
+
+                } else if (qtype == 'text' || qtype == '') {
+                    if ($.trim($(this).find("textarea").val()) == '') {
+                        qindex = $(this).attr('qindex');
+                    }
+                } else {
+                    /*
+    				 if($(this).find("input:checked").size()==0){
+    					 qindex = $(this).attr('qindex');
+    				 }
+    				 */
+                }
+            }
+        });
+        return qindex;
+    }
+
+    //禁用输入
+    function disableAll() {
+        $("textarea,input,button").each(function() {
+            $(this).attr("disabled", true);
+        });
+        if ($("#submitBtn").length) {
+            $("#submitBtn").hide();
+        }
+    }
+    $(".enPop .enPop_header_close").click(function() {
+        finishedFeedback("1");
+    });
+    $(".enPop .el_btn").click(function() {
+        finishedFeedback("2");
+    });
+
+    function finishedFeedback(f) {
+        $(".enPop").hide();
+        window.close();
+    }
+});
+
+function showSubQ(obj, id, type) {
+    var _this = $(obj);
+    var _value = _this.val();
+    if (type == 'option3') {
+        if (_value == 'A') {
+            $("#opt" + id + "_subQ").show();
+            $("input[name='extVaue_" + id + "']").val("").attr("disabled", true);
+        } else {
+            $("#opt" + id + "_subQ").hide();
+            $("input[name='extVaue_" + id + "']").attr("disabled", false);
+            _this.parents("tr").find("table input:checked").attr("checked", false);
+        }
+    }
+}
+</script>
+
+<body style="background-color:#f5f5f5;">
+    <div class="wrapper">
+        <form action="/survey/surveyFeedback!doSave.action" method="POST" id="feedbackForm">
+            <!--  头部  -->
+            <div class="examTitle">
+                <h2 style="text-align:center;padding-top:10px;padding-bottom:10px;"><input type="hidden" name="id" value="142131" />测试</h1>
+		<p style="color: #c0a355;font-size: 14px;text-align:center;">(本次问卷调查，请您如实回答，谢谢！)</p>
+		<p style="font-size: 14px;text-align:center;margin-top:7px;">5分：非常符合4分：比较符合3分：一般2分：比较不符合1分：非常不符合</p>
+        <div class="examlable">
+			
+        </div>
+    </div>
+    <!--  头部 -End  --> 
+     <!--  内容  -->
+	<div class="examContent">
+			<p >第一章</p>
+		<ul qtype="text" qindex="1">
+			<ol>1. 测试1<input type="hidden" name="optId" value="1063"/></ol>
+        </ul>
+            <li><textarea name="opt1063" style="width:80%;height:80px;font-size: 0.875em;border: 1px solid #b3b3b3;color: #666;"></textarea></li>
+			<p >第二章</p>
+		<ul qtype="assert" qindex="2">
+			<ol>2. 测试2<input type="hidden" name="optId" value="1064"/></ol>
+        </ul>
+        <ul>
+            <li><input type="radio" name="opt1064" value="true"  /><span>是</span></li>
+            <li><input type="radio" name="opt1064" value="false"  /><span>否</span></li>
+		</ul>	
+			<p >第三章</p>
+		<ul qtype="score" qindex="3">
+			<ol>3. 测试三<input type="hidden" name="optId" value="1065"/></ol>
+            <li><input type="radio" name="opt1065" value="5"  /><span>5分</span></li>
+            <li><input type="radio" name="opt1065" value="4"  / ><span>4分</span></li>
+            <li><input type="radio" name="opt1065" value="3"  /><span>3分</span></li>
+            <li><input type="radio" name="opt1065" value="2"  /><span>2分</span></li>  
+            <li><input type="radio" name="opt1065" value="1"  /><span>1分</span></li>  
+        </ul>
+		 </div>
+	<div class="examBtn">
+    	<!--<a href="#" name="previous">上一题</a>-->
+    	    	
+        <a href="surveyFeedback.html" name="next" style="margin-left:45%;" >提交问卷</a>
+       <!--  <a href="surveyFeedback.html" name="next" style="margin-left:45%;" id="submitBtn">提交问卷</a> -->
+    </div>  
+    </form>
+</div>
+</body>
+</html>

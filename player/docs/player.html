@@ -1,0 +1,132 @@
+﻿﻿<!-- saved from url=(0014)about:internet -->
+ <html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>文档播放器</title>
+<script src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/js/swfobject.js"></script>
+<script type="text/javascript" src="../ApiImpl.js"></script>
+<style type="text/css">
+#myId {margin-top:-18px;}
+</style>
+ </head>
+ <body onLoad="pageInit();">
+ <div id="myId"></div> 
+ <!--<div class="next">下一页</div>
+ <div class="pre">上一页</div>
+ <div class="big">放大</div>-->
+ </body>
+ <script type="text/javaScript">
+ 	var currentPage=1, maxPage = 1,totalPages = 0, hasComment = false;
+ 	var isready =false;
+     var so = new SWFObject("reader.swf", "flash", "100%", "100%", "9");
+	 so.addParam("allowfullscreen","true");
+	 so.addParam("wmode","Transparent");
+	 //so.addParam("allowFullScreenInteractive","true");
+	 so.write("myId"); 
+     function pageInit() {
+    	 
+    	 isready=true;
+	//第一参数为swf的地址，
+	//第二参数页数，默认为1	
+		
+		//window.parent.alert(currentPage+"|"+maxPage);
+		
+		//sendToActionScript(getUrlParam("file"),2,currentPage);	
+				
+		/*if(!hasComment){
+			hasComment = (totalPages == maxPage);
+		}*/
+     }   
+     
+     function isReady(){
+ 		isready=true
+ 		return isready;	
+ 		
+ 	 }
+     
+   //最大页数，使测试后的不再弹框
+ 	function MaxPage(){
+	   //window.parent.alert(maxPage);
+ 		return maxPage;
+    }
+     
+     function sendToActionScript(value,i,j) {
+		 //document.getElementById("flash").loadswf('swf/demo1.swf',2,2);
+		 currentPage  = getLocation();	
+		 maxPage = getMaxLocation();
+		 //window.parent.alert(currentPage+"|"+maxPage);
+		 
+         document.getElementById("flash").loadswf(getUrlParam("file"),2,currentPage);
+     } 
+     function nextPage_1(){
+    	 document.getElementById("flash").next_Page_1();
+     }
+	//总页数
+	function getTotalPages(allPage) {
+		totalPages = allPage;
+		//window.parent.alert(allPage)
+	}
+	function queryCurPage(curpage) {    
+		//window.parent.alert(curpage);
+		currentPage = curpage;		
+		Api.setMaxLocation(curpage);
+	 }
+	 function lastPage(){
+		 Api.onReachLastPage();
+		 if(!(currentPage == maxPage)){
+			 Api.goComment();
+		 }		
+	 }
+	//是否通过测试
+	function passExam(){
+		//bool="false"
+		//return bool;
+		//window.parent.alert(Api.passExam());
+		return Api.passExam(currentPage);
+	}
+	function popUp(){
+		//alert("13131");
+		Api.goExamTest(currentPage);
+	}
+	function getPic(){
+		//_node ='<info><num>3</num><num>9</num><num>11</num></info>'
+		//return _node;
+		//window.parent.alert('dd');
+		return Api.getPic();
+	}	
+	
+	function next_Page() {
+		
+	}
+
+
+    function getLocation(){
+		var location = Api.getLocation();					
+		if(!location)
+			return 1;
+		return parseInt(location);	
+	 }
+    
+    function getMaxLocation(){
+		var maxLocation = Api.getMaxLocation();	
+		if(!maxLocation)
+			return 1;
+		return parseInt(maxLocation);	
+	 }
+    
+    function setLocation(){
+    	Api.setLocation(currentPage);
+	}
+    
+	function getUrlParam(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null)
+		return unescape(r[2]);
+		return null;
+	}
+ </script>
+ </html>
+ 
+ 

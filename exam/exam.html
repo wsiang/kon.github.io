@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function navPhone() {
+        if ($('.navPhone').css('display') == 'none') { //如果是隐藏的
+            $('.navPhone').css('display', 'block'); //显示
+        } else if ($('.navPhone').css('display') == 'block') { //如果是显示的
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+
+    }
+    $(document).ready(function() {
+        $("#onlinecourse").addClass("nav_hover");
+        $("#onlinecoursep").addClass("phoneNavOnclick");
+    });
+    </script>
+    <script type="text/javascript">
+    function confirmExam(id, limit, time) {
+        $("#goExamBtn").attr("examId", id);
+        $(".exam_confirm_time").text(time);
+        $(".exam_confirm_limit").text(limit);
+        if (limit == 0) {
+            $(".limitText").hide();
+            $(".nolimitText").show();
+        } else {
+            $(".limitText").show();
+            $(".nolimitText").hide();
+        }
+
+    }
+
+    function isPc() {
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function goExam(btn) {
+
+        if (isPc()) {
+            window.open('/exam/exam!doUserExam.action?examId=' + $(btn).attr("examId"));
+            $('.close-reveal-modal').click();
+        } else {
+            window.location.href = '/exam/exam!doUserExam.action?examId=' + $(btn).attr("examId");
+            $('.close-reveal-modal').click();
+        }
+
+    }
+
+    function goExamWrong(examId) {
+        if (isPc()) {
+            window.open('/exam/exam!examWrong.action?examId=' + examId);
+            $('.closeBtn').click();
+        } else {
+            window.location.href = '/exam/exam!examWrong.action?examId=' + examId;
+        }
+
+    }
+
+    function lookwrong(examId) {
+        if (isPc()) {
+            window.open('/exam/exam!examWrong.action?examId=' + examId);
+
+        } else {
+            window.location.href = '/exam/exam!examWrong.action?examId=' + examId;
+        }
+
+    }
+
+    function doSearch() {
+        if (jQuery("#keyTopic").val().length > 20) {
+            alert("搜索关键字过长,请限制在20字以内");
+            return;
+        }
+
+        $("#searchForm").submit();
+
+    }
+    $(document).ready(function() {
+        $("#tabletest tr:even").addClass("whiteBg");
+        $("#tabletest tr:odd").addClass("tdBlueBg");
+    });
+    </script>
+    <script>
+    ;
+    ! function() {
+
+        laydate.skin('qianhuang');
+
+       /* laydate({
+            elem: '#demo',
+            fixed: true
+        })*/
+
+    }();
+    </script>
+</head>
+
+<body curPage="2_2_1" queryUrl="/exam/exam!doMyList.action">
+    <div class="wrapper">
+        <!--  头部  -->
+        <!--  头部  -->
+        <header>
+             <div class="headerBox">
+                <div class="logo">
+                    <a href="../index/index.html">
+                        <img src="../h5/images/logo.png">
+                    </a>
+                </div>
+                <nav class="navPhone">
+                    <ul>
+                        <li id="indexliph">
+                            <a id="indexp" href=../index/index.html ">首页</a></li>
+                        <li id="onlinecourseliph "><a id="onlinecoursep " href="../onlinecourse.html ">培训中心</a></li>
+                        <li id="contactliph "><a id="contactp " href="../survey/surveyFeedback.html ">问卷调查</a></li>
+                        <li id="newsliph "> <a id="newsp " href="../news/news.html ">信息中心</a></li>
+                        <li id="pointliph "><a id="pointp " href="../point/gift.html ">兑礼中心</a></li>
+                        <li id="followliph "><a href="../follow.html " class="item " title="跟进管理 ">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <nav class="navPc ">
+                    <ul>
+                        <li id="indexliPc "><a id="index " href="../index/index.html ">首页</a></li>
+                        <li id="onlinecourseliPc "><a id="onlinecourse" href="../onlinecourse.html ">培训中心</a></li>
+                        <li id="contactliPc "><a id="contact " href="../survey/surveyFeedback.html ">问卷调查</a></li>
+                        <li id="newsliPc "><a id="news " href="../news/news.html ">信息中心</a></li>
+                        <li id="pointliPc "><a id="point " href="../point/gift.html ">兑礼中心</a></li>
+                        <li id="followliph "><a href="../follow.html " class="item " title="跟进管理 ">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <aside>
+                    <a href="javascript:void(0); " onClick="navPhone() " class="message displayNone "><img id="image " src="../h5/images/icon_menu.png "></a>
+                    <a href="../msg/msg.html " class="message ">
+                        <div style="vertical-align: top;display: inline-block; width: 35px;height: 28px; background: url(../images/element.png) no-repeat 0px -28px; ">
+                            <span id="newMsg " style="display:none; "></span></div>
+                    </a>
+                    <a href="../user/user.html " class="photo "><img src="../images/default_headPhoto.png "></a>
+                    <a href="# " class="exit ">[退出]</a>
+                </aside>
+            </div>
+             
+            <script>
+            window.onorientationchange = function() {
+                switch (window.orientation) {
+                    case -90:
+                    case 90:
+                        window.location.reload();
+                        window.location.reload();
+                    case 0:
+                    case 180:
+                        window.location.reload();
+                        break;
+                }
+            }
+            </script>
+            <script type="text/javascript">
+            document.onclick = function(event) {
+                var e = event || window.event;
+                if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image' && (e.srcElement || e.target).id != 'Cmenu1' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu3' && (e.srcElement || e.target).id != 'Cmenu4' && (e.srcElement || e.target).id != 'Cmenu5') {
+
+                    $('.navPhone').css('display', 'none'); //隐藏
+                }
+            }
+            </script>
+        </header>
+        <!--  头部 -End  -
+
+  <!--  头部 -End  -->
+        <!--  内容  -->
+        <div class="content_D">
+            <section class="whiteBg_border">
+                <!--二级导航-->
+                <ul class="two_menu ">
+                    <li><a href="../onlinecourse.html ">在线学习</a></li>
+                    <li><a href="exam.html " class="two_menu_hover ">在线考试</a></li>
+                    <li><a href="../attachment/attachment.html ">学习资料</a></li>
+                </ul>
+            </section>
+            <div class="blueBg">
+                <!--切页-->
+                <div class="onlineTest">
+                    <div class="onlineTest_Nav ">
+                        <a href="exam.html ">
+                            <div id="Bmenu3" class="B3">独立考试</div>
+                        </a>
+                        <a href="course_exam.html">
+                            <div id="Bmenu2" class="B2">线上课程考试</div>
+                        </a>
+                        <a href="exam.html">
+                            <div id="Bmenu1" class="B_on">全部
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="B1" style="display:block;" class="onlineTest_List">
+                        <section class="whiteBg_border0">
+                            <!--搜索-->
+                            <ul class="search">
+                                <form action="/exam/exam!doMyList.action" method="get" id="searchForm">
+                                    <input type="hidden" name="keyType" value="" id="keyType" />
+                                    <li>
+                                        <h6>考试状态：</h6>
+                                        <select name="keyStatus" id="keyStatus">
+                                            <option value="-1">全部</option>
+                                            <option value="0">未考</option>
+                                            <option value="1">已考</option>
+                                        </select>
+                                    </li>
+            
+                                    <li>
+                                        <h6>关键字：</h6>
+                                        <input name="keyTopic" id="keyTopic" value="" placeholder="请输入考试名称" />
+                                    </li>
+                                    <li>
+                                        <h6> </h6><a href="javascript:void(0);" class="search_btn radius5" onclick="doSearch();">搜索</a></li>
+                                </form>
+                            </ul>
+ 
+                        </section>
+                        <div class="blueBg">
+                            <!--第二部分课程展示-->
+                            <div class="onlineLearn">
+                                <div class="onlineLearn_title">
+                                    <h1>试题列表</h1></div>
+                                <div class="onlineLearn_Table">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="radius5" style="min-width:700px;" id="tabletest">
+                                        <tr>
+                                            <th class="tdMinWidth">操作</th>
+                                            <th>考试名称</th>
+                                            <th>开始时间</th>
+                                            <th>结束时间</th>
+                                            <th>考试状态</th>
+                                            <th>剩余考试次数</th>
+                                            <th>考试分数</th>
+                                            <th>考试排名/人数</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center; vertical-align:middle;">
+                                                <a class="radius5 btn_common1 btn_look" href="javascript:void(0)" onclick="lookwrong('3278')" target="_blank">查看错题
+
+</a>
+                                            </td>
+                                            <td>微信企业号及K2表单操作考核</td>
+                                            <td class="tabletextcenter">2016-07-18</td>
+                                            <td class="tabletextcenter">2016-08-31</td>
+                                            <td class="tabletextcenter">已考
+                                                <font color="red">Χ</font>
+                                            </td>
+                                            <td class="tabletextcenter">0</td>
+                                            <td class="tabletextcenter">53</td>
+                                            <td class="tabletextcenter">103 / 137</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center; vertical-align:middle;">
+                                                <a class="radius5 btn_common1 btn_start" href="javascript:void(0);" target="_blank" onclick="confirmExam
+
+('3282','3','30');" data-reveal-id="forget">开始考试</a>
+                                            </td>
+                                            <td>E-learning后台管理考核</td>
+                                            <td class="tabletextcenter">2016-07-19</td>
+                                            <td class="tabletextcenter">2016-09-30</td>
+                                            <td class="tabletextcenter">已考
+                                                <font color="red">Χ</font>
+                                            </td>
+                                            <td class="tabletextcenter">1</td>
+                                            <td class="tabletextcenter">20</td>
+                                            <td class="tabletextcenter">1 / 1</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- pagesBox start -->
+                                <!-- pagesBox end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  内容 -End  -->
+                <div id="forget" class="forget" style="top:30%">
+                    <div class="forgetTitle">
+                        <h2 style="text-align:center;font-weight:140; font-size : 20px;">考试规则</h2>
+                        <a class="close-reveal-modal"></a>
+                    </div>
+                    <div class="forgetText">
+                        <p class="limitText">- 该门考试有<span class="exam_confirm_limit">五</span>次考试机会，每次考试时间为<span class="exam_confirm_time">30</span>分钟。</p>
+                        <p class="nolimitText">- 本次考试时间为<span class="exam_confirm_time">30</span>分钟。</p>
+                        <p class="limitText">- <span class="exam_confirm_limit">五</span>次考试机会用完后，您才能查看错题。</p>
+                        <p class="nolimitText">- 考完后您能查看错题。</p>
+                        <p class="limitText">- 我们将取所有考试次数中的最高分，作为您的最终成绩。</p>
+                        <p class="nolimitText">- 我们将取所有考试次数中的最高分，作为您的最终成绩。</p>
+                        <h1 style="color:#c0a355">您是否要开始考试？</h1>
+                        <table>
+                            <tr>
+                                <td style="width:200px" align="center">
+                                    <a style="line-height: 35px; color: #fff;  padding: 0 15%;cursor: pointer; border-radius: 2px;font-size:18px; font-weight: bold;text-align: center;
+  display: inline-block;  background-color: #c0a355; border: none;
+" href="examUser.html" examId="0" id="goExamBtn"  >是</a>
+                                </td>
+                                <td style="width:200px" align="center">
+                                    <a style=" line-height: 35px; color: #fff;  padding: 0 15%;cursor: pointer; border-radius: 2px;font-size:18px; font-weight: bold;text-align: center;
+  display: inline-block;  background-color: #b4b4b4; border: none;" href="javascript:void(0);" onclick="$('.close-reveal-modal').click();">否</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <script>
+                var fromUrl = window.location.href;
+                fromUrl = fromUrl.replace("http://", "");
+                var firstIndex = fromUrl.indexOf("/");
+                if (firstIndex != -1) {
+                    fromUrl = fromUrl.substr(firstIndex);
+                } else {
+                    fromUrl = "/index/index.action";
+                }
+                $("#siteFeedbackLink").attr("href", $("#siteFeedbackLink").attr("href") + "?fromUrl=" + encodeURIComponent(fromUrl));
+
+
+                $('input').placeholder();
+                </script>
+                <div id="forgetfoot" class="forget">
+                    <div class="forgetTitle">
+                        <h2>联系客服</h2>
+                        <a class="close-reveal-modal"></a>
+                    </div>
+                    <div class="forgetText">
+                        <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+                        <p>1.发送邮件： A4000@kitchenlife.com.cn</p>
+                        <p>2.致电：0512-57701727</p>
+                        <p id="time">工作时间：</p>
+                        <p id="times">上午09:00-12:30</p>
+                        <p id="times">下午13:30-17:30</p>
+                    </div>
+                </div>
+                <!--  底部  -->
+                <footer class="fixed">
+                    <p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.</p>
+                    <aside>
+                        <a href="/user/user!doList.action" title="后台管理">后台管理</a>&nbsp;|
+                        <a href="/siteFeedback!doEdit.action" id="siteFeedbackLink" title="意见反馈">意见反馈&nbsp;&nbsp;</a>|
+                        <a target="_blank" href="/attachment/attachment!play.action?id=2217" id="xinshouzhinan" title="新手指南">新手指南&nbsp;&nbsp;</a>|
+                        <a href="javascript:void(0);" data-reveal-id="forgetfoot">联系客服&nbsp;&nbsp;</a>
+                    </aside>
+                    <p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+                    <!---->
+                </footer>
+                <!--  底部 -End  -->
+            </div>
+            <script type="text/javascript">
+            $(function() {
+                $("#keyStatus,#keyTopic,#keyStartDate,#keyEndDate").on("change", function() {
+                    var keyStatus = $("#keyStatus").val();
+                    var keyTopic = $("#keyTopic").val();
+                    var keyStartDate = $("#keyStartDate").val();
+                    var keyEndDate = $("#keyEndDate").val();
+                    $("#searchForm").submit();
+                    $("#keyStatus").val(keyStatus);
+                    $("#keyTopic").val(keyTopic);
+                    $("#keyStartDate").val(keyStartDate);
+                    $("#keyEndDate").val(keyEndDate);
+                });
+                $('input[type="text"]').placeholder();
+            });
+
+            function getCriteria() {
+                var topic = $.trim($("#keyTopic").val());
+                var param = "&keyStatus=" + $("#keyStatus").val();
+                var keyStartDate = $.trim($("#keyStartDate").val());
+                if (topic != '') {
+                    param += "&topic=" + topic;
+                }
+                if (keyStartDate != '') {
+                    param += "&keyStartDate=" + keyStartDate;
+                }
+                if (keyEndDate != '') {
+                    param += "&keyEndDate=" + keyEndDate;
+                }
+
+                return param;
+            }
+            </script>
+</body>
+
+</html>

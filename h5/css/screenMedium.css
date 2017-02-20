@@ -1,0 +1,534 @@
+@media (min-width:481px) and (max-width:999px) {
+
+/*头部导航样式*/
+.wrapper{ width:100%;}
+header{ width:100%; background-color:#DB444D; position:relative;}
+.headerBox{ width:100%; height:98px; }
+.logo{ width:140px; padding:20px 0 0 10px; height:48px; float:left;}
+.logo img{ width:100%;}
+/*显示当前所在导航*/
+.current{background:url(../h5/images/triangle.png) no-repeat 0-5px;}
+/*隐藏nav*/
+.navPc{ display:none;}
+.navPhone{ width:100%; float:left; position:absolute; top:98px; border-top:1px solid #333; display:none; z-index:2;}
+.navPhone ul li{ font-size:1.6em; padding:0 15px; background:rgba(0,0,0,0.9); border-bottom:1px solid #333;}
+.navPhone ul li a{ color:#ccc; display:block; height:72px; line-height:72px; padding-left:20px;}
+.navPhone ul li a:hover{ color:#fff; background:url(../images/bg_navhover_left.png) 90% center no-repeat; padding-left:40px;}
+.navPc ul li a.nav_hover{color:#fff; background:url(../images/bg_navhover_left.png) 90% center no-repeat; padding-left:40px;}
+headerBox{}
+header aside{ float:right; margin-right:20px;}/*右侧链接样式*/
+header aside a{ display:block; margin:0 10px;}
+.photo{ border-radius:20px;  float:left; width:40px; height:40px; line-height:40px; margin:28px 20px; overflow:hidden; }
+.photo img{ width:40px; height:40px;}
+.message{ float:left; width:25px; height:28px; margin:28px 10px;}
+.message img{ width:100%;}
+.exit{ float:left; font-size:1.2em; color:#fff; line-height:98px; }
+.exit:hover{ color:#fff;}
+
+/*广告样式*/
+.banner { position:relative; overflow:hidden; width:100%; /* 设置焦点图最大高度 */ }
+
+.banner .bd { position: relative; z-index:0; }
+.banner .bannerPic{ background:#f5f5f5;}
+.banner .bannerPic li { position:relative; text-align:center; }
+.banner .bannerPic li img { width:100%;/* 图片宽度100%，达到自适应效果 */ }
+.banner .btns li { cursor:pointer;}
+
+.banner .btns { position: absolute; left:46%; bottom:0; margin-bottom:10px; z-index:1; }
+.banner .btns li { display:inline-block; width:16px; height:6px; background:rgba(0,0,0,0.6); color:rgba(255,0,0,0); text-indent:-1px; margin-right:6px; 
+
+overflow:hidden; }
+.banner .btns li.on { background:#c0a355; color:#c0a355; }
+
+
+/*内容样式*/
+/*第一部分--排行榜*/
+.content{ width:100%;}
+.content .charts{ width:100%; overflow:hidden;}
+.content h1{ text-align:center; padding:30px 0 20px 0;}
+/* --- 页签内表格样式 --- */
+.chartTable { width:100%; float:left; overflow:auto; margin-bottom:20px;}
+.chartTable table{margin:0 1%; text-align:left; width:98%;}
+.chartTable th{ color:#333; font-size:1.2em; font-weight:600; padding:6px 0; border-bottom:2px solid #1a1a1a;width:19%;text-align:center;}
+.chartTable .differentBoder{ border-bottom-color:#c0a355;}
+.chartTable td{ color:#666; font-size:1.2em;  height:36px; line-height:36px; border-bottom:1px solid #ddd; text-align:center;}/*padding-left:2%;上面是1%*/
+
+/* --- 页签 --- */
+.content .chartsNav{ width:100%; margin:0 auto; overflow:hidden; margin-bottom:10px;}
+.content .C{
+	float:left; font-size:1.5em; text-align:center; height:60px; width:24.6%; line-height:60px;
+	color:#c49507; border:1px solid #c49507; border-right:0; cursor:pointer; }
+.content .C_on{
+	float: left; font-size:1.4em; background-color:#eb4979; text-align:center; height:60px; width:24.6%; line-height:60px;
+	color:#fff; border:1px solid #eb4979; border-right:0; cursor:pointer; }
+/*.chartsNav img{ width:16px; height:8px; display:block; padding-left:49%;} 选中小三角样式*/
+
+
+/*第二部分--热门课程*/
+.content .hotClass{ width:100%; }
+.hotClass .classList{ padding-left:2%; overflow:hidden; padding-bottom:20px;}
+.class{ width:47%; float:left; margin-bottom:20px; margin-right:2%; position:relative;}
+.fixheight{height:250px;}
+.class img{ width:100%; display:block;}
+.class .classText{ width:100%; background-color:#fff; text-align:center; box-shadow:0px 1px 0px #dfdfdf;}
+.classText h2{
+	font-size:1.5em; font-weight:bold; padding-top:14px; white-space:nowrap; width:97%; padding-left:3%; color:#333;
+	overflow:hidden; text-overflow:ellipsis;}
+.classText p{ font-size:1em; color:#999999; padding:10px 0 20px;}
+.moreClass{ width:96%; border-radius:6px; height:66px; line-height:66px; font-size:1.4em; color:#fff; text-align:center;
+ display:block; background-color:#eb4979; float:left;}
+.moreClass:hover{ background-color:#e13f6f;}
+.class .tag{ width:80px; display:block; position:absolute; left:0; top:0;}
+.class .hover{width:100%; height:100%; background-color:rgba(0,0,0,0.5); position:absolute; left:0; top:0; display:none;}
+.class .hover .ok{
+	border-radius:6px; margin:0 auto; margin-top:30%; width:110px; height:50px; line-height:50px; color:#fff; font-size:1.2em;
+	display:block; text-align:center; background-color:#f4477a;}
+
+
+
+/*底部样式*/
+footer{ width:96%; background-color:#000; color:#989790; font-size:1em; padding:20px 2%; }
+footer p{ text-align:center; width:100%; }
+footer aside{ text-align:center; width:100%; padding:10px 0;}
+footer aside a{ color:#989790;}
+footer aside a:hover{ color:#fff;}
+
+
+
+
+
+
+
+
+
+/*个人中心样式---------------------------------------------------------------------------开始-----*/
+.personalBox{ width:100%; padding:20px 0; overflow:hidden;}
+
+.photo2Box{ width:88%; margin:0 auto; border:1px solid #dbd9d9; padding:20px 3%; background:#fff; border-radius:2px; overflow:hidden;}
+.photo2{ float:left; width:180px; height:180px; border-radius:160px;  overflow:hidden;}
+.photo2 img{ width:180px; height:180px;}
+.commonBtn{ float:left; padding:10px 20px; border-radius:6px; color:#fff; font-size:1.4em; text-align:center; margin-left:16px; }
+.uploadingBtn img,.deletBtn img,.clearBtn img,.editBtn img,.submitBtn img,.escBtn img{ display:none;}	
+.uploadingBtn{ background-color:#2fc8a6; margin-top:100px;}	
+.deletBtn{ background-color:#ea4848; margin-top:100px;}
+.clearBtn{ background-color:#ea4848; margin-top:100px;}
+.editBtn{background-color:#43a8eb; width:90px; display:block; margin-left:40%;  margin-top:20px;}
+.buttons{ float:right; width:100%; padding-top:20px;}
+
+.escBtn{ background-color:#999999; float:right;}/*个人资料编辑状态页面按钮*/
+.submitBtn{background-color:#2fc8a6; float:right; margin-right:36%;}
+
+.personalDataBox{ width:100%; margin-top:30px; background:#fff; overflow:hidden;}
+.personalDataBox li{ float:left; color:#666; line-height:88px; width:96%; border-bottom:1px solid #dedfe0; padding-left:4%;}
+.personalDataBox li span[class="leftTitle"]{ width:34%; display:block; float:left; font-size:1.6em;}
+.personalDataBox li span[class="rightText"]{ color:#333; width:66%; display:block; float:left; font-size:1.6em;}
+
+.personalDataBox li input[class="rightInput"]{ color:#333; width:63%; padding-left:6px; float:left; height:66px; margin-top:1.4%; font-size:1.4em;}
+.personalDataBox li label{ margin-right:20px; font-size:1.6em;}
+.personalDataBox li label input[name="sex"]{ margin-right:10px;}
+
+.personalDataBox li input[name="date"]{color:#333; width:63%; padding-left:6px; float:left; height:66px; margin-top:1.4%; font-size:1em;}
+
+.personalDataBox1{ width:100%; margin-top:30px; background:#fff; overflow:hidden;}
+.personalDataBox1 li{ float:left; color:#666; line-height:88px; width:96%; border-bottom:1px solid #dedfe0; padding-left:4%;}
+.personalDataBox1 li span[class="leftTitle"]{ width:34%; display:block; float:left; font-size:1.6em;}
+.personalDataBox1 li span[class="rightText"]{ color:#333; width:66%; display:block; float:left; font-size:1.6em;}
+
+.personalDataBox1 li input[class="rightInput"]{ color:#333; width:63%; padding-left:6px; float:left; height:66px; margin-top:1.4%; font-size:1.4em;}
+.personalDataBox1 li label{ margin-right:20px; font-size:1.6em;}
+.personalDataBox1 li label input[name="sex"]{ margin-right:10px;}
+
+.personalDataBox1 li input[name="date"]{color:#333; width:95%; padding-left:6px; float:left; height:66px; margin-top:1.4%; font-size:1em;}
+
+.dateicon{ position:absolute; top:9px; right:5%; z-index:9; height:46px; width:46px; }
+.dateicon img{ width:100%;}
+
+/*个人中心样式---------------------------------------------------------------------------结束-----*/
+
+
+
+
+
+
+
+
+
+/*二级导航样式----------------------------------------------------------------------------------------*/
+/* --- 二级页面整体框架样式---Phone --- */
+.content_D {width:100%; margin:0 auto; overflow:hidden; min-width:572px;}
+.onlineTest { width:100%; overflow:hidden;}
+.onlineTest_Nav{ width:100%; overflow:hidden; margin:0 auto;}
+/* --- 二级菜单样式 --- */
+.two_menu { width:100%; margin:0 auto; height:72px; line-height:72px;}
+.two_menu li { float:left; margin:0 1.5%;font-size:1.5em;}
+.two_menu li a { width:100%; display:block; text-align:center; line-height:70px; color:#4c4c4c;}
+.two_menu li a:hover { border-bottom:2px solid #C0A354; color:#C0A354;}
+.two_menu li a.two_menu_hover { border-bottom:2px solid #C0A354; color:#C0A354;}/*当前页面选中样式*/
+/*在线考试三级菜单样式--B--*/
+.onlineTest_Nav .B1,.onlineTest_Nav .B2,.onlineTest_Nav .B3,.onlineTest_Nav .B_on{float:right;font-size:1.4em;text-align:center;padding-left:26px;
+height:66px;line-height:66px; color:#b2b2b2; cursor:pointer;background-origin:padding-box; margin:0 16px;}
+.onlineTest_Nav .B1{background:url(../images/icon_nav_all.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .B2{background:url(../images/icon_nav_all.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .B3{background:url(../images/icon_nav_all.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .B_on{color:#666; 
+background:url(../images/icon_nav_all_hover.png) no-repeat 0 center / 20px 20px , url(../images/bg_navhover_black.png) no-repeat center bottom / 12px 7px;}
+/*学习资料三级菜单样式--A--*/
+.onlineTest_Nav .A1,.onlineTest_Nav .A2,.onlineTest_Nav .A3,.onlineTest_Nav .A_on{float:right;font-size:1.4em;text-align:center;padding-left:26px;
+height:66px;line-height:66px; color:#b2b2b2; cursor:pointer;background-origin:padding-box; margin:0 16px;}
+.onlineTest_Nav .A1{background:url(../images/icon_nav_all.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .A2{background:url(../images/icon_nav_download.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .A3{background:url(../images/icon_nav_read.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .A_on{color:#666; 
+background:url(../images/icon_nav_all_hover.png) no-repeat 0 center / 20px 20px , url(../images/bg_navhover_black.png) no-repeat center bottom / 12px 7px;}
+/*交流中心--问答专区--三级菜单样式--E--*/
+.onlineTest_Nav .E1,.onlineTest_Nav .B2,.onlineTest_Nav .B3,.onlineTest_Nav .B_on{float:right;font-size:1.4em;text-align:center;padding-left:26px;
+height:66px;line-height:66px; color:#b2b2b2; cursor:pointer;background-origin:padding-box; margin:0 16px;}
+.onlineTest_Nav .E1{background:url(../images/icon_nav_all.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .E2{background:url(../images/icon_nav_question.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .E3{background:url(../images/icon_nav_answer.png) no-repeat 0 center / 20px 20px;}
+.onlineTest_Nav .E_on{color:#666; 
+background:url(../images/icon_nav_all_hover.png) no-repeat 0 center / 20px 20px , url(../images/bg_navhover_black.png) no-repeat center bottom / 12px 7px;}
+
+/* --- 搜索样式1 --- */
+.search{ width:100%; margin:0 auto; height:auto; padding:20px 0 30px 0; overflow:hidden;}
+.search li { float:left; margin:0 2%; width:46%; }
+.search li h6 { font-size:1.4em; color:#666666; font-weight:normal; line-height:50px; height:50px;}
+.search li select { width:100%; border:1px solid #DBD9D9; line-height:60px; height:60px; color:#4d4d4d; font-size:1.2em;}
+.search li input { width:100%; border:1px solid #DBD9D9; line-height:60px; height:60px; text-indent:0.5em; color:#4d4d4d; font-size:1.2em;}
+.search li a.search_btn { background:#4F81BD; color:#fff; font-size:14px; display:block; width:100px; height:60px; line-height:60px; text-align:center;
+font-size:1.2em;}
+.search .dateicon2{ position:absolute; top:-8px; right:8%; z-index:1; height:32px; width:32px; }/*日历icon样式---二级页面搜索条件*/
+.search .dateicon2 img{ width:100%;}
+/* --- 搜索样式2 --- */
+.searchPc{ display:none;}
+.searchPhone { width:100%; margin:0 auto; height:auto; padding:20px 0 30px 0; overflow:hidden;}
+.searchPhone li { float:left; margin:0 2%; width:46%; }
+.searchPhone li h6 { font-size:1.4em; color:#666; font-weight:normal; line-height:50px; height:50px;}
+.searchPhone li select { width:100%; border:1px solid #DBD9D9; line-height:60px; height:60px; color:#4d4d4d; font-size:1.4em;}
+.searchPhone li input { width:100%; border:1px solid #DBD9D9; line-height:60px; height:60px; text-indent:0.5em; color:#4d4d4d; font-size:1.4em;}
+.searchPhone li a.search_btn { background:#4F81BD; font-size:1.4em; color:#fff; display:block; width:100px; height:60px; line-height:60px;
+ text-align:center; margin-top:20px;}
+.searchPhone .dateicon2{ position:absolute; top:-8px; right:4%; z-index:1; height:32px; width:32px; }/*日历icon样式---二级页面搜索条件*/
+.searchPhone .dateicon2 img{ width:100%;}
+/* --- 表格列表样式 --- */
+.onlineLearn { width:100%; margin:0 auto; height:auto; padding:20px 0; overflow:hidden;}
+.onlineLearn_title { width:100%; line-height:66px; height:auto;overflow:hidden;}
+.onlineLearn_title h1 { float:left; font-size:1.5em; color:#333333; font-weight:normal; padding:0; margin-left:2.5%;}
+.onlineLearn_Table {width:96%; margin:0 auto; overflow-y:hidden; height:auto;}
+.onlineLearn_Table table { background:#fff; border-collapse:collapse; text-align:left; text-indent:0.5em;}
+.onlineLearn_Table table th{ border:1px solid #E6E9EE;line-height:40px;font-weight:bold; color:black; white-space: nowrap; padding-right:10px;
+font-size:1.3em; font-family:"微软雅黑"; background:#D3D3D3;text-align:center;}
+.onlineLearn_Table table td{ border-bottom:1px solid #E6E9EE;line-height:60px;color:#333; white-space: nowrap;/*td标签不换行属性*/ padding-right:10px;
+font-size:1.3em;}
+.onlineLearn_Table table tr:hover{ background:#F7F9FB;}
+/* --- 表格内按钮样式 --- */
+.tdMinWidth{ min-width:236px;}
+.tdMinWidth2{ min-width:310px;}
+.onlineLearn_Table table .btn_common1{display:block; height:25px; line-height:25px;color:#fff; font-size:0.9em; margin-left:8px; float:left;
+padding:8px 12px; text-indent:0;}
+.onlineLearn_Table table .btn_start { padding:8px 8px 8px 22px; background-origin:padding-box; 
+background: rgba(47,200,166,1) url(../images/img_star.png) no-repeat 10px center / 7px 12px;}/*开始考试、开始学习样式*/
+.onlineLearn_Table table .btn_look { background:rgba(67,168,235,1);}/*查看详情、设为置顶等样式*/
+.onlineLearn_Table table a.btn_look:hover { background:rgba(62,153,214,1);}
+.onlineLearn_Table table .btn_delet { background:rgba(245,53,53,1);}/*删除样式*/
+.onlineLearn_Table table a.btn_delet:hover{background-color:rgba(229,50,50,1);}
+.onlineLearn_Table table .btn_frost { background:rgba(54,60,71,1);}/*冻结样式*/
+.onlineLearn_Table table a.btn_frost:hover{background-color:rgba(39,43,51,1);}
+.onlineLearn_Table table .btn_good{ background:rgba(245,112,53,1);}/*设为加精样式*/
+.onlineLearn_Table table a.btn_good:hover{background-color:rgba(229,104,50,1);}
+/* --- 表格下方翻页样式 --- */
+.page{ width:100%; margin:0 auto; height:auto; padding:24px 0 12px; overflow:hidden; text-align:center;}
+.page a { border:1px solid #CACACA; background-color:#fff; padding:1% 2%; margin:0 2px; font-size:1em; color:#666;}
+.page a:hover { background:#4F81BD; color:#fff; border-color:#4F81BD;}
+.page a.page_hover {background:#4F81BD; color:#fff; border-color:#4F81BD;}
+/* -- 表格上方按钮样式 -- */
+.operationBtn{ width:80%; float:right; }
+.operationBtn select{ border:1px solid #dbd9d9; color:#666; height:54px; line-height:54px; width:170px; float:right; margin:6px 20px 0 0;
+padding-left:4px; font-size:1.2em;}
+.commonStyle{color:#fff; padding:19px 20px 19px 20px; font-size:1.2em; border-radius:5px; background-origin:padding-box; height:16px; text-align:center;
+display:block; float:right; width:40px; height:16px; line-height:16px; margin:6px 10px 0 0;}
+.questionBtn{ background:rgba(47,200,166,1);}/*提问按钮*/
+.addBtn{ background:rgba(47,200,166,1);}/*新增*/
+.modificationBtn{ background:rgba(245,112,53,1);}/*编辑修改*/
+.lookBtn{ width:80px; background:rgba(67,168,235,1);}/*查看*/
+.tabBtn{ width:120px; background:rgba(67,168,235,1);}/*标记全部已读*/
+.deletBtn{ width:80px; background:rgba(245,53,53,1);}/*全部删除*/
+.frostBtn{ background:rgba(54,60,71,1);}/*冻结 禁止*/
+.cartBtn{width:100px; background:rgba(245,112,53,1);}/*购物车*/
+.giftBtn{width:60px; background:rgba(245,112,53,1);}/*礼品柜*/
+.pointInformation{ font-size:1.2em; font-weight:normal; float:right; color:#333; line-height:54px; margin:6px 20px 0 0;}
+.pointInformation span{ color:#f53535;}
+/*表格内----表格内礼品附图样式--兑礼中心*/
+.giftImg{ display:block; height:60px;}
+.giftImg img{ height:100%;}
+/*表格内----等级评分样式*/
+.iconStar{ padding-left:4px; min-width:160px;}
+.iconStar img{ width:26px; float:left; margin-right:2px;}
+
+/*培训中心-----------------------------------------------------------------------------------结束-----*/
+
+/*登录页面样式-----------------------------------------------------------------------------------开始---- */
+.logintop,.loginbottom{ display:none;}
+
+.phoneBgd{ background:rgba(245,245,245,1);}
+.loginLogo{width:100%; background:#d72734;}
+.loginLogoBox{width:100%;}
+.loginLogoBox span{width:36%; margin:0 auto; display:block; padding:70px 0; }
+.loginLogoBox img{width:100%;}
+.loginTextPC{ display:none;}
+.loginTextPhone{ width:100%; height:auto;}
+.textBox{ width:80%; margin:0 auto; text-align:center; padding:30px; height:900px;
+ background:url(../images/login_phone_bgd2.png) no-repeat 20px bottom / 650px 473px; background-origin:padding-box;}
+.textBox .input1,.textBox .input2{ width:88%; height:72px; color:#666; padding-left:12%; margin-bottom:20px; border:1px solid #bfbfbf; font-size:1.6em;}
+.textBox .input1{background:rgba(255,255,255,1) url(../images/icon_login1.png) no-repeat 16px center / 34px 38px;}
+.textBox .input2{background:rgba(255,255,255,1) url(../images/icon_login2.png) no-repeat 16px center / 34px 38px;}
+.textBox .loginBtn{ display:block; width:100%; line-height:72px; background:#d72734; color:#fff; margin-bottom:20px; cursor:pointer; font-size:1.6em;}
+.textBox h1{padding:10px 0 30px 0; font-size:3.6em;
+ background:url(../images/login_phone_bgd1.png) no-repeat right bottom / 90px 80px; background-origin:padding-box;}
+.moreBtn{ width:100%; padding:10px 0 30px 5px; height:12px;}
+.moreBtn h4{ float:left; width:50%; font-size:1.2em; font-weight:normal; color:#666; height:12px; line-height:12px;}
+.moreBtn a{ float:right; width:50%; font-size:1.2em; font-weight:normal; color:#666; height:12px; line-height:12px; text-align:right;}
+.moreBtn a:hover{ text-decoration:underline; color:#c0a355;}
+.textBox .moreBtn h4 input{ float:left;}
+.textBox .moreBtn h4 p{ padding-left:10px;float:left;}
+
+footer.login{ width:95%; line-height:20px; text-align:center; background:none; position:relative; bottom:0;}
+/*登录页面样式-----------------------------------------------------------------------------------结束---- */
+/*三级页面样式-----------------------------------------------------------------------------------开始---- */
+.closeBtn{width:98%; overflow:hidden; padding-right:2%;}
+.closeBtn a{width:50px;}
+.closeBtn a:hover{background-color:#d62f2f;}
+.answerTitle{ width:98%; padding:10px 2% 0; overflow:hidden;}
+.answerTitle h1{ text-align:left; font-size:2.8em; color:#333; width:100%; font-weight:normal; padding:0; padding-left:66px; margin:0; line-height:60px;
+background:url(../images/icon_answer.png) no-repeat left center /58px 52px;}
+.answerTitle h2{font-size:2em; color:#333; float:left; font-weight:normal; line-height:66px;}
+.answerLabel{widht:100%; overflow:hidden; padding:20px 0;}
+.answerLabel li{float:left; color:#999; margin-right:16px; font-size:1.4em; line-height:40px;}
+.answerLabel li span{color:#666;}
+
+.answerDetails{width:100%; height:auto; margin:0 auto; border-top:1px solid #e0e0e0; border-bottom:1px solid #e0e0e0; overflow:hidden;}
+
+.comment{overflow:hidden; border-bottom:1px solid #e0e0e0;}
+.commentPhoto{float:left; width:90px; height:90px; padding:30px 30px 20px;}
+.commentPhoto img{width:100%;}
+.commentText{float:left; padding-top:32px; width:80%;}
+.commentText .commentContent{ font-size:1.6em; font-weight:normal;}
+.commentText .commentContent span{ color:#c0a355;}
+.commentText p{font-size:1.4em;  margin:20px 0 10px 0;}
+.commentLable{ float:right; width:100%; padding-bottom:20px;}
+.commentLable p{float:right; font-size:1.4em; margin-right:6px;
+background:url(../images/icon_zan.png) no-repeat left center /28px 25px; padding-left:34px; color:#666;}
+.commentLable h5{float:right; font-weight:normal; font-size:1.4em; margin-right:14px; color:#6a90cc; text-decoration:underline; cursor:pointer;}
+
+.replyBox{ width:90%;margin-left:10%; display:none; background:rgba(235,235,235,1); background-origin:border-box;}/*回复弹出框*/
+.reply{ overflow:hidden;}
+.reply textarea{ width:93%; max-width:93%; min-height:120px; height:auto; margin:20px 0 20px 2%; border:1px solid #c0a355; padding:10px; font-size:1.4em; color:#666;}
+.reply a.uploadingBtn{float:right; margin:0 2.6% 20px 0; background:rgba(47,200,166,1);}/*提交*/
+.reply a.uploadingBtn:hover{ background-color:#27c19f;}
+
+.editComment{ width:100%; overflow:hidden; margin-bottom:30px;}
+.editComment .title{ font-size:1.6em; width:100%; text-align:left; line-height:60px; color:#333; padding-left:20px; font-weight:400;}
+.editColumn{ width:96%; background:#f0f0ee; border:1px solid #e0e0e0; border-bottom:0; height:50px; margin-left:2%;}
+.editColumn img{ height:100%; width:auto;}
+.editComment textarea{ width:94%; min-height:220px; margin-left:2%; height:auto; font-size:1.2em; color:#666;border:1px solid #e0e0e0; padding:5px 1%; }
+.editComment a.uploadingBtn{float:right; margin:14px 2% 0 0; background:rgba(47,200,166,1);}/*提交*/
+.editComment a.uploadingBtn:hover{ background-color:#27c19f;}
+
+.comment_title{ height:auto; line-height:66px; overflow:hidden; width:100%; border-top:1px solid #e0e0e0; border-bottom:0;}
+.comment_title h1{ color:#333; float:left; font-size:1.6em; font-weight:normal; margin-left:26px; padding:0; text-align:left;}
+/*三级页面样式-----------------------------------------------------------------------------------结束---- */
+
+/*弹出框样式-----------------------------------------------------------------------------------开始---- */
+
+/* 忘记密码 */
+.reveal-modal-bg{position:fixed; height:100%; width:100%; background-color:#000; z-index:100; top:0; left:0;}
+.forget{visibility:hidden;top:100px;left:18%; width:66%;background:#FFF;position:absolute;z-index:101; border-radius:6px;}
+.forget .close-reveal-modal {position:absolute;top:5px;right:2px;cursor:pointer; background:url(../images/img_close.png) no-repeat center center;
+display:block; width:32px; height:32px; padding:4px; background-origin:content-box;} 
+.forget .forgetTitle { width:100%; height:auto; overflow:hidden; background:#d72734; line-height:50px;
+border-top-left-radius:5px;border-top-right-radius:5px;}
+.forget .forgetTitle h2{font-size:1.2em;color:#fff; padding-left:10px; font-weight:normal;}
+.forget .forgetTitle img { position:relative; top:5px; margin:0 3px 0 10px;}
+.forget .forgetText{ padding:0px 20px 20px 20px;}
+.forget .forgetText h1{ width:100%; text-align:center; font-size:1.8em; color:#333; font-weight:normal; line-height:50px; padding:20px 0;}
+.forget .forgetText p{ line-height:32px; font-size:1.2em;}
+.forget .forgetText p[id="time"]{ line-height:26px; color:#eb4979; padding-top:10px;}
+.forget .forgetText p[id="times"]{ padding-left:10px;}
+
+/*弹出框样式-----------------------------------------------------------------------------------结束---- */
+/*三级页面样式----------------------------------------------------------------------------------开始---*/
+.classTitlePc{ display:none;}
+.classTitlePhone{ width:96%; margin:0 auto; overflow:hidden; padding-bottom:20px;}
+.classTitlePhone a{width:48px; margin:0; float:left; margin:0 10px 20px 0; padding:12px 18px;}
+.classTitlePhone p{float:left; font-size:1.4em; line-height:32px; width:50%; padding-left:34px; color:#666;margin:4px 0 20px 0 ; cursor:pointer;
+background:url(../images/icon_zan.png) no-repeat left center /28px 25px;}
+.title{ width:100%; line-height:44px; font-size:1.8em; text-align:center; color:#333; margin:0 auto; padding:20px 0;}
+.classImg{width:100%;}
+.classImg img{ width:100%;}
+/*考试*/
+.examTitle{width:100%; margin:0 auto; overflow:hidden;}
+.examTitle .title{ width:100%; line-height:100px; font-size:1.8em; text-align:center; color:#333; float:left;}
+.time{ color:#c0a354; float:left; padding-left:30px; line-height:36px; margin-left:20px; font-size:1.6em;
+background:url(../images/icon_times.png) no-repeat left center / 25px 25px;}
+.time span{ color:red;}
+.examlable{width:100%; margin:0 auto; overflow:hidden; margin-bottom:10px;}
+.examPage{ float:right; padding:0 16px; line-height:38px; text-align:center; color:#fff; border-radius:20px; background-color:#c0a354;
+margin-right:20px; font-size:1.4em;}
+.examContent{width:96%; margin:0 auto; overflow:hidden; background-color:#fff; padding:50px 2%;}
+.examContent li,.examContent ol{ line-height:40px; font-size:1.6em;}
+.examContent li{ margin-left:20px; margin-top:10px;}
+.examContent ol{ margin-bottom:20px;}
+.examContent li span{margin-left:12px;}
+.examBtn{width:100%; margin:0 auto; overflow:hidden; padding:30px 0;}
+.examBtn a{ padding:10px 18px; border-radius:6px; line-height:30px; background:#c0a354; color:#fff; text-align:center; font-size:1.4em;}
+.examBtn a[name="previous"]{margin-left:36%;}
+.examBtn a[name="next"]{margin-left:30px;}
+.examBtn a[name="submit"]{margin-left:30px;}
+/*成绩显示*/
+.examTitle1{width:68%; margin:0 auto; text-align:center; line-height:62px; padding:50px 0 15px 0; margin-bottom:30px;}
+.examTitle1 h1{ margin:0 auto; background:#c0a355; height:62px; line-height:62px; color:#fff;}
+.scoreName{width:100%; text-align:center; line-height:40px; font-size:1.2em;color:#fff;}
+.score{ border-radius:80px; background-color:#ca5b5b; color:#fff; margin:0 auto; width:100px; line-height:100px; text-align:center;
+margin-top:20px; font-size:3em;}
+.scoreSlogan{text-align:center;width:100%; font-size:1.2em;color:#ca5b5b; line-height:90px; font-size:1.6em;}
+.button{ border-radius:4px;width:70px; height:40px; line-height:38px; background:#c0a354; color:#fff; text-align:center; margin:0 auto;display:block;
+margin-top:20px; font-size:1.2em;}
+/*首页课程详情二级页面*/
+.classDetail{ width:98%; margin:0 auto; padding:10px 0 10px 0;}
+.classImgs{width:100%;}
+.classImgs img{width:100%;}
+.textDetail{ width:98%; padding-left:1%;}
+.textDetail .titleDetail{font-size:2em; line-height:60px; padding:0; text-align:left; font-weight:400;}
+.lableDetail{ padding:10px 0; font-size:1.2em; width:100%; overflow:hidden; font-weight:normal; color:#666;}
+.lableDetail .lable01,.lableDetail .lable02,.lableDetail .lable03{ float:left; line-height:26px;}
+.lableDetail .lable01{ margin-right:15%;}
+.lableDetail .lable02{margin-right:1%;}
+.lableDetail .lable03{ padding-left:18px; background:url(../images/icon_zan.png) no-repeat left center / 14px 12px; float:right; cursor:pointer;}
+.statusDetail{}
+.statusDetail li{ line-height:30px; font-size:1.2em; padding:5px 0;}
+.statusDetail li span{ color:#c0a355;}
+.plan{ width:98%; padding-left:1%; margin:0 auto; font-size:1.2em; font-weight:normal; line-height:60px; background:#f7f9fb; color:#333; border-radius:4px; margin-
+
+bottom:20px;}
+.plan span{ color:red; padding:0 2px;}
+.details{ width:100%; margin:0 auto;}
+.className{ font-size:1.5em; font-weight:normal; line-height:60px; padding-left:2.5%;}
+.classText2{padding:10px 1%; width:96%; margin:0 auto; border:1px solid #e6e9ee; background-color:#fff; min-height:90px;}
+.editComment textarea[class="textareaStyle"]{ width:96%; padding:5 1%; margin-left:1%; height:120px;}
+
+/*底部友情链接样式---意见反馈----*/
+.ideaTitle{text-align:center; font-size:1.8em; margin-bottom:20px; color:#333; font-weight:normal;
+background:url(../images/icon_idea.png) no-repeat 40% 8px / 28px 28px; background-origin:content-box;}
+.ideaBox{width:90%; background-color:#fff; border:1px solid #dbd9d9; margin:0 auto; padding:10px; overflow:hidden;}
+.ideaBox li{ padding:10px 0; font-size:1.2em; overflow:hidden; line-height:60px; }
+.ideaBox span{ color:red; float:left; height:60px; line-height:60px;display:block;}
+.ideaBox span[class="title0"]{ color:#333; width:16%;}
+.ideaBox input[type="text"]{ padding:0 5px 0 6px; height:60px; line-height:60px; width:80%; font-size:1.1em; float:left;border:1px solid #b3b3b3; color:#666;}
+.ideaBox input[type="button"]{ height:40px; padding:0 6px; margin-right:6px; font-size:1em;}
+.ideaBox textarea{ width:80%; min-height:110px; padding:5px; font-size:1.1em; float:left; border:1px solid #b3b3b3; color:#666;}
+.ideaBox a.uploadingBtn{ width:50px; margin-right:3%;}/*提交*/
+footer[class="fixed"]{position:relative; bottom:0;}
+/*三级页面样式----------------------------------------------------------------------------------开始---*/
+.video-js{width:96%;height:300px;margin: 0 auto;}
+
+/*进度条----------------------------------------------------------------------------------开始---*/
+.progressCon{
+width: 80%;
+  height: 12px;
+  background-color: #e5e5e5;
+  overflow: hidden;
+}
+.fn_inBlock{
+display: inline-block;
+}
+.progress{
+height: 12px;
+  background-color: #c0a354;
+  float: left;
+}
+
+/*新增根据管理选择汇报人弹出框----------------------------------------------------------------------------------开始---*/
+/********************************
+ * name		: tipPop
+ * content	: 提示弹出框
+ ********************************/
+.tipPop1 {width:100%;position:fixed;font-size:0;left:50%;margin-left:-160px;top:50%;margin-top:-50%;display:none;z-index:9;}
+.tipPop_bg1 {width:100%;height:100%;position:fixed;top:0;left:0;background-color:#000;opacity:0.5;filter:alpha(opacity=50);z-index:8;}
+.tipPop_head1 {font-size:16px;height:32px;background:url(../images/bg_tipPopwindow_320x26.png) no-repeat 0 0;}
+.tipPop_head_noclose1 {background:url(../images/bg_tipPopwindow_320x26_v2.png) no-repeat 0 0;}
+.tipPop_head_tit1 {color:#A17934;font-weight:normal;display:block;padding-top:5px;float:left;padding-left:6px;}
+.tipPop_head_close1 {width:20px;height:20px;cursor:pointer;float:right;display:block;}
+.tipPop_main1 {background:url(../images/bg_tipPopwindow_320x26.png) no-repeat right bottom;padding-bottom:11px;}
+.tipPop_main_inner1 {background:url(../images/bg_tipPopwindow_320x26.png) repeat-y -394px top;}
+.tipPop_main_con_inText1, .tipPop_main_inner .infoTxt {font-size:16px;color:#806242;display:block;}
+.tipPop_main_con_inText1 {width:377px;height:60px;border:1px solid #EBDBB6;background:#fff;resize:none;margin:0 auto;}
+.tipPop_main_inner1 .infoTxt {padding-top:10px;padding-bottom:20px;text-align:center;margin:0 15px;}
+.tipPop_main_btns1 {padding:6px 7px 3px 7px;text-align:right;}
+.tipPop1[tipPopType="noTit1"] .tipPop_main_btns {text-align:center;}
+.tipPop_main_btns1 .el_btn {width:77px;height:27px;font-size:12px;}
+.tipPop_main_btns1 .el_btn.close {margin-left:20px;}
+.tipPop_main_bot1 {#height:0px;#zoom:1;} /*IE7*/
+[tipPopType="surveyPublish1"] .tipPop_main_btns1 {text-align:center;}
+.tipPop_checkboxBox1 {display:inline-block;vertical-align:middle;margin-left:20px;}
+.tipPop_checkboxBox_checkbox1 {margin-right:5px;vertical-align:middle;}
+.tipPop_checkboxBox_content1 {font-size:12px;color:#666;vertical-align:middle;}
+
+.tipPop1[tipPopType="largeFrame1"] {width:90%;}
+[tipPopType="largeFrame1"] .tipPop_head1, [tipPopType="largeFrame1"] .tipPop_main1, [tipPopType="largeFrame1"] .tipPop_main_inner1 {background-image:url
+
+(../images/bg_tipPopwindow_800x32.png);}
+[tipPopType="largeFrame1"] .tipPop_main_inner1 {background-position:100% 0;}
+[tipPopType="largeFrame1"] .tipPop_main_con1 {text-align:center;}
+
+.tipPop_main_con1 .iframeselect{
+	width:90%;
+}
+
+/**日期边框样式 */
+.rightText #datacss{
+	width:85%;border:1px solid
+}
+
+/**日期边框样式--跟进管理 */
+.datagenjin{
+	color:#333; width:63%; padding-left:6px; float:left; height:66px; margin-top:1.4%; font-size:1.4em;
+}
+.selectClass select{color:#333; width:65%; padding-left:6px; float:left; height:66px; margin-top:1.4%; font-size:1.4em;}
+.duty_tree{color:#333; width:63%; padding-left:6px; float:left; height:160px; margin-top:1.4%; font-size:1.4em;border:1px solid}
+.duty_treeD{height:160px;}
+.phoneNavOnclick{color:#fff; background:url(../images/bg_navhover_left.png) 90% center no-repeat; padding-left:40px;}
+/*文本对齐方式*/
+.tabletextcenter{ text-align:center; vertical-align:middle; }
+.fontbold{font-weight:bold;}
+.ideaBox select{padding: 0 5px 0 6px;height: 60px;line-height: 60px;width: 82%;font-size: 1.1em;float: left;border: 1px solid #b3b3b3;color: #666;}
+.closeBtn p{float:right; font-size:1.4em; margin-right:6px;
+background:url(../images/heartIcon.png) no-repeat left center /28px 25px; padding-left:34px; color:#666;margin-top:15px;}
+.goodAnwser{font-size: 1.4em;text-align:right;margin-right:10px;color:#b1840a;}
+.finput{width:95.5%;margin-left:2%;}
+/**消息样式**/
+.newMsg{float: right;padding: 0px 2px;color: #FFF;font-size: 10px;background-color: #F00; height:18px;line-height: 18px;}
+/**加精样式**/
+
+.page_pic_eles {background: url(../../images/page_pic_eles.png) no-repeat 0px 0px;display: inline-block;}
+.icon_good {width: 18px;height: 17px;background-position: 0px -29px;}
+/**置顶样式**/
+.icon_top{width: 30px;height: 17px;background-position: 0px -46px;}
+/**首页图片样式**/
+.index_course_img{height:140px;}
+/**头像上传样式**/
+.headImagUpload{opacity:0;position:absolute;   margin-top: -40px;margin-left: -41px; height: 50px;width:84px;}
+/**下一章节开始按钮样式**/
+.plan a.btn_start{padding: 2px 8px 2px 18px;background-origin: padding-box;background: rgba(47,200,166,1) url(../images/img_star.png) no-repeat 9px center / 5px 9px;}
+.plan a.btn_common1 { display: block;height: 25px;line-height: 25px; color: #fff; font-size: 0.875em; margin-left: 5px; text-indent: 0;margin-top: 10px; margin-right: 10px;float: right;}
+.plan a.btn_start:hover { background:rgba(41,179,149,1) url(../images/img_star.png) no-repeat 9px center / 5px 9px;}
+.classTitleP{ display:none;}
+.classTitlePhon{ }
+.classTitlePhon a{}
+.giftclass{height:221px;}
+.classmyImgs{max-width:100%;}
+}
+
+
+
+
+

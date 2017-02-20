@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+body{ width:100%;}
+* { 
+	margin:0px; 
+	padding:0px; 
+	font-family: "\5FAE\8F6F\96C5\9ED1", "\9ED1\4F53", "\5B8B\4F53", "\5FAE\8F6F\96C5\9ED1",  "Lucida Grande", "Verdana", "Tahoma", "Lucida", "Arial", "Helvetica", "sans-serif"; 
+}
+
+h1,h2,h3,h4,h5,h6{ list-style:none; text-decoration:none;}
+ul,li{ list-style:none; text-decoration:none;}
+a{ list-style:none; text-decoration:none;}
+a:hover { text-decoration:none; }
+a:focus {outline-style:none; -moz-outline-style: none;}/*元素获得焦点是添加的样式*/
+img{ border:0;}
+input{ list-style:none;}
+
+/*p { text-indent:0; text-align:justify; text-justify:inter-ideograph;}设置两端对齐*/
+
+
+/* == 圆角 == */
+.radius5 {-moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px}
+
+
+/*清除*/
+.clear { clear: both; }
+
+/*背景色*/
+.grayBg{ background-color:#f5f5f5;}
+.whiteBg{ background-color:#fff;}
+.blueBg { background-color:#F2F2F2;}
+.tdBlueBg{background-color:#fafbfc;}
+.whiteBg_border { background-color:#fff; border-bottom:1px solid #E1E1E2;}
+.whiteBg_border0 { background-color:#fff; border-bottom:1.5px solid #ECEEF0;}
+
+/*学习状态文字颜色*/
+.magenta{ color:#eb4979;}/*洋红*/
+.blue{ color:#3c95e1;}
+.green{ color:#41c984;}
+.red{color:#f53535;}
+
+/*首页表格表头边框样式*/
+.blackBoder{ border-bottom:2px solid #1a1a1a;}
+.differentBoder{ border-bottom:2px solid #c0a355;}
+
+/*浮动定位*/
+#position{ position:relative;}
+
+
+/* == 背景图片 == 
+.mainBg { position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden; z-index:1; }
+.mainBg img { width:100%;}*/
+
+.phcolor{ color:#999;}
+.fontbold{font-weight:bold;}
+/**消息样式**/
+.newMsg{float: right;padding: 0px 2px;color: #FFF;font-size: 10px;background-color: #F00; height:18px;line-height: 18px;}
+/**加精样式**/
+
+.page_pic_eles {background: url(../../images/page_pic_eles.png) no-repeat 0px 0px;display: inline-block;}
+.icon_good {width: 18px;height: 17px;background-position: 0px -29px;}
+/**置顶样式**/
+.icon_top{width: 30px;height: 17px;background-position: 0px -46px;}

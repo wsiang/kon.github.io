@@ -1,0 +1,21 @@
+.pointerTR{
+	cursor: pointer;
+}
+.qImgBox{
+	width: 750px;
+	padding-top: 10px;
+}
+.qImgBox .qImg{
+	max-width: 100%;
+}
+.aImgBox{
+	width: 750px;
+	padding-top: 10px;
+}
+.aImgBox .aImg{
+	max-width: 100%;
+}
+.com_btn04_s1{
+	background-color: #c0a355 !important;
+	color: #fff !important;
+}

@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="h5/css/screenBig.css" />
+    <script type="text/javascript" src="h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="zTree_v3/css/demo.css" type="text/css">
+    <style type="text/css">
+    .ztree li span.button.switch.level0 {
+        visibility: hidden;
+        width: 1px;
+    }
+    
+    .ztree li ul.level0 {
+        padding: 0;
+        background: none;
+    }
+    </style>
+    <link rel="stylesheet" href="zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="zTree_v3/js/jquery.ztree.core-3.5.js"></script>
+    <script type="text/javascript" src="zTree_v3/js/jquery.ztree.excheck-3.5.js"></script>
+    <script type="text/javascript">
+    document.onclick = function(event) {
+        var e = event || window.event;
+        if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image') {
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+    }
+    </script>
+    <script type="text/javascript">
+    function navPhone() {
+        if ($('.navPhone').css('display') == 'none') { //如果是隐藏的
+            $('.navPhone').css('display', 'block'); //显示
+        } else if ($('.navPhone').css('display') == 'block') { //如果是显示的
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+
+    }
+    $(document).ready(function() {
+        $("#onlinecourse").addClass("nav_hover");
+        $("#onlinecoursep").addClass("phoneNavOnclick");
+    });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#tabletest tr:even").addClass("whiteBg");
+        $("#tabletest tr:odd").addClass("tdBlueBg");
+    });
+
+    function sub() {
+        $("#courseSearchForm").submit();
+    }
+
+
+
+    function isPc() {
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function startlearn(id) {
+
+        if (isPc()) {
+            window.open('/onlinecourse!play.action?id=' + id);
+            $('.closeBtn').click();
+        } else {
+            window.location.href = '/onlinecourse!play.action?id=' + id;
+        }
+
+    }
+
+    <!--
+    var setting = {
+        view: {
+            dblClickExpand: dblClickExpand,
+            showIcon: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            onClick: onClick
+        }
+    };
+
+    var zNodes = [{
+        id: 0,
+        pid: -1,
+        name: '全部',
+        open: true
+    }, {
+        id: 106,
+        pId: 5375,
+        name: "销售基础知识",
+        open: 'false'
+    }, {
+        id: 663,
+        pId: 5375,
+        name: "设计下单知识",
+        open: 'false'
+    }, {
+        id: 5375,
+        pId: 106,
+        name: "整体厨房",
+        open: 'false'
+    }, {
+        id: 5396,
+        pId: 0,
+        name: "展售部课程",
+        open: 'true'
+    }, {
+        id: 5397,
+        pId: 0,
+        name: "服务部课程",
+        open: 'true'
+    }, {
+        id: 5398,
+        pId: 0,
+        name: "整体厨房课程",
+        open: 'true'
+    }, {
+        id: 5399,
+        pId: 0,
+        name: "人事培训课程",
+        open: 'true'
+    }, {
+        id: 5400,
+        pId: 0,
+        name: "公用培训课程",
+        open: 'true'
+    }, {
+        id: 5407,
+        pId: 5400,
+        name: "微信上线培训",
+        open: 'false'
+    }, {
+        id: 5447,
+        pId: 5398,
+        name: "销售基础知识",
+        open: 'false'
+    }, {
+        id: 5448,
+        pId: 5398,
+        name: "设计下单知识",
+        open: 'false'
+    }, {
+        id: 5449,
+        pId: 5398,
+        name: "经营管理知识",
+        open: 'false'
+    }, {
+        id: 5450,
+        pId: 5398,
+        name: "产品上线说明",
+        open: 'false'
+    }, {
+        id: 5451,
+        pId: 5398,
+        name: "产品除役说明",
+        open: 'false'
+    }, {
+        id: 5452,
+        pId: 5398,
+        name: "台面规范说明",
+        open: 'false'
+    }, {
+        id: 5453,
+        pId: 5398,
+        name: "安装规范说明",
+        open: 'false'
+    }, {
+        id: 5454,
+        pId: 5453,
+        name: "柜体类安装说明",
+        open: 'false'
+    }, {
+        id: 5455,
+        pId: 5453,
+        name: "五金类安装说明",
+        open: 'false'
+    }, {
+        id: 5456,
+        pId: 5453,
+        name: "电器类安装说明",
+        open: 'false'
+    }, {
+        id: 5457,
+        pId: 5398,
+        name: "设计案例赏析",
+        open: 'false'
+    }, {
+        id: 5458,
+        pId: 5398,
+        name: "异常案例解析",
+        open: 'false'
+    }];
+
+    function showMenu() {
+        var cityObj = $("#citySel");
+        var cityOffset = $("#citySel").offset();
+        $("#menuContent").css({
+            left: cityOffset.left + "px",
+            top: cityOffset.top + cityObj.outerHeight() + "px"
+        }).slideDown("fast");
+
+        $("body").bind("mousedown", onBodyDown);
+    }
+
+    function hideMenu() {
+        $("#menuContent").fadeOut("fast");
+        $("body").unbind("mousedown", onBodyDown);
+    }
+
+    function onBodyDown(event) {
+        if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length > 0)) {
+            hideMenu();
+        }
+    }
+
+    function onClick(e, treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        var cityObj = $("#citySel");
+        var model_parent_idObj = $("#model_parent_id");
+        cityObj.attr("value", treeNode.name);
+        model_parent_idObj.attr("value", treeNode.id);
+        hideMenu();
+        $("#courseSearchForm").submit();
+        return false;
+    }
+
+    function dblClickExpand(treeId, treeNode) {
+        return treeNode.level > 0;
+    }
+
+    $(document).ready(function() {
+        $.fn.zTree.init($("#tree"), setting, zNodes);
+    });
+    //-->
+    </script>
+</head>
+
+<body curPage="2_1" queryUrl="/onlinecourse!courses.action">
+    <div class="wrapper">
+        <!--  头部  -->
+        <header>
+            <div class="headerBox">
+                <div class="logo">
+                    <a href="index/index.html">
+                        <img src="h5/images/logo.png">
+                    </a>
+                </div>
+                <nav class="navPhone">
+                    <ul>
+                        <li id="indexliph"><a id="indexp" href="index/index.html">首页</a></li>
+                        <li id="onlinecourseliph"><a id="onlinecoursep" href="onlinecourse.html">培训中心</a></li>
+                        <li id="contactliph"><a id="contactp" href="survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliph"> <a id="newsp" href="news/news.html">信息中心</a></li>
+                        <li id="pointliph"><a id="pointp" href="point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <nav class="navPc">
+                    <ul>
+                        <li id="indexliPc"><a id="index" href="index/index.html">首页</a></li>
+                        <li id="onlinecourseliPc"><a id="onlinecourse" href="onlinecourse.html">培训中心</a></li>
+                        <li id="contactliPc"><a id="contact" href="survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliPc"><a id="news" href="news/news.html">信息中心</a></li>
+                        <li id="pointliPc"><a id="point" href="point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <aside>
+                    <a href="javascript:void(0);" onClick="navPhone()" class="message displayNone"><img id="image" src="h5/images/icon_menu.png"></a>
+                    <a href="msg/msg.html" class="message">
+                        <div style="vertical-align: top;display: inline-block; width: 35px;height: 28px; background: url(images/element.png) no-repeat 0px -28px;">
+                            <span id="newMsg" style="display:none;"></span></div>
+                    </a>
+                    <a href="user/user.html" class="photo"><img src="images/default_headPhoto.png"></a>
+                    <a href="#" class="exit">[退出]</a>
+                </aside>
+            </div>
+            <script>
+            window.onorientationchange = function() {
+                switch (window.orientation) {
+                    case -90:
+                    case 90:
+                        window.location.reload();
+                        window.location.reload();
+                    case 0:
+                    case 180:
+                        window.location.reload();
+                        break;
+                }
+            }
+            </script>
+            <script type="text/javascript">
+            document.onclick = function(event) {
+                var e = event || window.event;
+                if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image' && (e.srcElement || e.target).id != 'Cmenu1' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu3' && (e.srcElement || e.target).id != 'Cmenu4' && (e.srcElement || e.target).id != 'Cmenu5') {
+
+                    $('.navPhone').css('display', 'none'); //隐藏
+                }
+            }
+            </script>
+        </header>
+        <!--  头部 -End  -
+  <!--  内容  -->
+        <div class="content">
+            <section class="whiteBg_border">
+                <!--二级导航-->
+                <ul class="two_menu">
+                    <li><a href="onlinecourse.html" class="two_menu_hover">在线学习</a></li>
+                    <li><a href="exam/exam.html">在线考试</a></li>
+                    <li><a href="attachment/attachment.html">学习资料</a></li>
+                </ul>
+            </section>
+            <section class="whiteBg_border0">
+                <!--搜索-->
+                <form action="#" method="get" id="courseSearchForm">
+                    <ul class="search">
+                        <li>
+                            <h6>学习状态：</h6>
+                            <select name="status" id="course_status">
+                                <option value="0" selected="selected">全部</option>
+                                <option value="1">未开始</option>
+                                <option value="2">进行中</option>
+                                <option value="3">已完成</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h6>分类：</h6>
+                            <input type="hidden" id="model_parent_id" name="courseType" value="" />
+                            <input id="citySel" type="text" value="" readonly onclick="showMenu();" />
+                        </li>
+                        <li>
+                            <h6>关键字：</h6>
+                            <input name="topic" value="" placeholder="请输入课程名称" id="couse_topic" />
+                        </li>
+                        <li>
+                            <h6> </h6><a href="javascript:void(0);" class="search_btn radius5" onclick="sub();">搜索</a></li>
+                    </ul>
+                </form>
+            </section>
+            <section class="blueBg">
+                <!--第二部分课程展示-->
+                <div class="onlineLearn">
+                    <div class="onlineLearn_title">
+                        <h1>课程列表</h1></div>
+                    <div class="onlineLearn_Table">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="radius5" style="min-width:700px;" id="tabletest">
+                            <tr>
+                                <th class="tdMinWidth">操作</th>
+                                <th>课程名称</th>
+                                <th>分类</th>
+                                <th>学习状态</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="radius5 btn_good btn_common1" href="course.html">进入课程</a>
+                                </td>
+                                <td>微信企业号及K2表单操作</td>
+                                <td>微信上线培训</td>
+                                <td class="tabletextcenter">
+                                    <span class="span02" style="color:RGB(60,149,225)">已完成</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="radius5 btn_common1 btn_start" href="play.html" target="_blank"  >开始学习</a><!-- <a class="radius5 btn_common1 btn_start" href="javascript:void(0);" target="_blank" onclick="startlearn('378')">开始学习</a> -->
+                                </td>
+                                <td>E-learning后台管理</td>
+                                <td>人事培训课程</td>
+                                <td class="tabletextcenter">
+                                    <span class="span02" style="color:RGB(60,149,225)">已完成</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- pagesBox start -->
+                    <div class="page">
+                        <a href="javascript:void(0)" onclick="go(1)">首页</a>
+                        <a href='javascript:void(0)' onclick='go(-100)'>上一页</a>
+                        <a class='page_hover' href='javascript:void(0)' style='cursor: default;'>1</a>
+                        <a href='javascript:void(0)' onclick='go(2)'>2</a>
+                        <a href='javascript:void(0)' onclick='go(-101)'>下一页</a>
+                        <a href='javascript:void(0)' onclick='go(2)'>末页</a>
+                    </div>
+                    <script type="text/javascript">
+                    function getBaseUrl() {
+                        return $("body").attr("baseUrl");
+                    }
+
+                    function getQueryUrl() {
+                        return $("body").attr("queryUrl");
+                    }
+
+                    function go(val) {
+                        var ptest = 1;
+                        if (val == -101) {
+                            val = ptest + 1;
+                        }
+                        if (val == -100) {
+                            val = ptest - 1;
+                        }
+                        if (val > 2) {
+                            val = 2;
+                        }
+                        var queryUrl = getQueryUrl();
+                        if (!queryUrl)
+                            queryUrl = getBaseUrl() + "!courses.action";
+
+                        var c = "?";
+                        if (queryUrl.indexOf('?') >= 0) {
+                            c = "&";
+                        }
+                        queryUrl += c + "pageIndex=" + val;
+                        var criteria = getCriteria();
+                        if (criteria != null)
+                            queryUrl += criteria;
+                        location.href = queryUrl;
+                    }
+
+                    function gotoPage() {
+                        var page = $("#curPage").val();
+                        if (page != '' && !isNaN(page))
+                            go(page);
+                    }
+
+                    $(document).ready(function() {
+                        $("#curPage").on("keydown", function(e) {
+                            if (e.keyCode == 13) {
+                                gotoPage();
+                            }
+                        });
+                    });
+                    </script>
+                    <!-- pagesBox end -->
+                    <div id="menuContent" class="menuContent" style="display:none; position: absolute;">
+                        <ul id="tree" class="ztree" style="margin-top:0;overflow-x:hidden;width:auto;"></ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!--  内容 -End  -->
+        <!--  底部  -->
+        <script>
+        var fromUrl = window.location.href;
+        fromUrl = fromUrl.replace("http://", "");
+        var firstIndex = fromUrl.indexOf("/");
+        if (firstIndex != -1) {
+            fromUrl = fromUrl.substr(firstIndex);
+        } else {
+            fromUrl = "/index/index.action";
+        }
+        $("#siteFeedbackLink").attr("href", $("#siteFeedbackLink").attr("href") + "?fromUrl=" + encodeURIComponent(fromUrl));
+
+
+        $('input').placeholder();
+        </script>
+        <div id="forgetfoot" class="forget">
+            <div class="forgetTitle">
+                <h2>联系客服</h2>
+                <a class="close-reveal-modal"></a>
+            </div>
+            <div class="forgetText">
+                <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+                <p>1.发送邮件： A4000@kitchenlife.com.cn</p>
+                <p>2.致电：0512-57701727</p>
+                <p id="time">工作时间：</p>
+                <p id="times">上午09:00-12:30</p>
+                <p id="times">下午13:30-17:30</p>
+            </div>
+        </div>
+        <!--  底部  -->
+        <footer class="fixed">
+            <p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.</p>
+            <aside>
+                <a href="#" title="后台管理">后台管理</a>&nbsp;|
+                <a href="siteFeedback.html" id="siteFeedbackLink" title="意见反馈">意见反馈&nbsp;&nbsp;</a>|
+                <a target="_blank" href="attachment/attachment.html" id="xinshouzhinan" title="新手指南">新手指南&nbsp;&nbsp;</a>|
+                <a href="javascript:void(0);" data-reveal-id="forgetfoot">联系客服&nbsp;&nbsp;</a>
+            </aside>
+            <p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+            <!---->
+        </footer>
+        <!--  底部 -End  -->
+        <!--  底部 -End  -->
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        $("#course_status,#course_courseType").on("change", function() {
+            var course_status = $("#course_status").val();
+            var course_courseType = $("#course_courseType").val();
+            $("#courseSearchForm").submit();
+            $("#course_courseType").val(course_courseType);
+            $("#course_status").val(course_status);
+        });
+        $('input[type="text"]').placeholder();
+    });
+
+    function getCriteria() {
+        var topic = $.trim($("#couse_topic").val());
+        var param = "&status=" + $("#course_status").val();
+        var course_courseType = $.trim($("#course_courseType").val());
+        if (topic != '') {
+            param += "&topic=" + topic;
+        }
+        if (course_courseType != '') {
+            param += "&courseType=" + course_courseType;
+        }
+
+        return param;
+    }
+    </script>
+</body>
+
+</html>

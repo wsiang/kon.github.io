@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+    function closewin() {
+        self.opener = null;
+        self.close();
+    }
+
+    function download1() {
+        window.location = '/download.action?id=7864';
+
+    }
+
+
+    function star(obj) {
+        $.ajax({
+            url: "/attachment/comments!marks.action",
+            type: "post",
+            data: {
+                "attachmentId": 2219,
+                'model.score': $(obj).val()
+            },
+            dataType: "json",
+            success: function(data) {
+
+                if (data.success) {
+                    window.location = '/attachment/attachment!play.action?id=2219&as=r';
+                } else {
+                    alert(data.msg);
+                }
+            }
+        });
+    }
+    </script>
+    <script>
+    function closewin() {
+        self.opener = null;
+        self.close();
+    }
+    </script>
+</head>
+
+<body style="background-color:#f5f5f5;">
+    <div class="wrapper">
+        <!--  头部  -->
+        <div class="classTitlePc">
+            <a href="javascript:window.close()" class="commonStyle deletBtn" style="cursor:pointer;">关闭</a>
+            <h1 class="title">E-LEARNING用户手册</h1>
+        </div>
+        <div class="classTitlePhone">
+            <h1 class="title">E-LEARNING用户手册</h1>
+            <div style=" width:100%; margin:0 auto; overflow:hidden;">
+                <a href="javascript:window.history.go(-1)" class="commonStyle deletBtn" style="cursor:pointer;">关闭</a>
+            </div>
+        </div>
+        <!--  头部 -End  -->
+        <!--  内容  -->
+        <div class="examContent" style="padding-top:0px;padding-bottom:0px;">
+            <ul>
+                <ol style="margin-bottom:0px;font-size:1em;">
+                    2分 (1人评分)&nbsp;&nbsp;&nbsp; 7人阅读&nbsp;&nbsp;&nbsp;3人下载 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </br>
+                    您的评分：
+                    <input type="radio" disabled="disabled" />很差
+                    <input type="radio" disabled="disabled" checked />较差
+                    <input type="radio" disabled="disabled" />还行
+                    <input type="radio" disabled="disabled" />推荐
+                    <input type="radio" disabled="disabled" />力荐
+                </ol>
+            </ul>
+        </div>
+    </div>
+    <h4 style="width:900px;margin: 0 auto;padding-top:10px;">该资料不支持在线阅读，
+<a href="javascript:void(0)">请点击下载</a></h4>
+<!-- <a href="javascript:void(0)" onclick="download1()">请点击下载</a></h4>
+ --></body>
+
+</html>

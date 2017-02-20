@@ -1,0 +1,74 @@
+/* The CSS Document is designed by King 01/2015 */
+@charset "utf-8";
+
+/* ====== 通用 ====== */
+body { background:#020015 url(../images/login_Bg.jpg) top center no-repeat; }
+* { margin:0px; padding:0px; font-family:  "\5FAE\8F6F\96C5\9ED1", "\9ED1\4F53", "\5B8B\4F53", "Lucida Grande", "Verdana", "Tahoma", "Lucida", "Arial", "Helvetica", "sans-serif"; }
+p { text-indent:0; text-align:justify; text-justify:inter-ideograph; line-height:1.5; }
+
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+.ul { display:inline; }
+.li { float:left; list-style:none; }
+
+.Webdings { font-family: Webdings; }
+
+#left { float:left; }
+#right { float:right; }
+#clear { clear:both; visibility:hidden; }
+
+#preloadedImages { display:inline; 
+background-image:url(url);
+background-image:url(url);
+} 
+
+.Radius {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px}
+
+/* == 登录 == */
+.login { width:1000px; margin:0 auto; }
+.loginBox { float:left; width:270px; margin:230px 0 0 705px; display:inline; overflow:hidden; }
+
+/* == 登录logo == */
+.loginTitle { float:left; width:270px; overflow:hidden; }
+.loginTitle span { float:left;  font-size:24px; font-weight:normal; color:#000; line-height:30px; }
+.loginTitle p { float:left;  font-size:26px; font-weight:normal; color:#000; line-height:30px; font-family:Arial; margin-left:10px; }
+
+/* == 登录右侧内容 == */
+.loginMain { float:left; width:270px; margin:0 0 0 0; overflow:hidden; }
+.loginMain ul { float:left; width:270px; overflow:hidden; }
+.loginMain ul li { float:left; width:270px; padding:10px 0; list-style:none; }
+
+
+/* == 提交按钮 == */
+.loginBtn { float:left; width:100%; height:35px; display:block; text-align:center; font-size:18px; font-weight:normal; color:#FFF; line-height:35px; background:#C0A354; }
+.loginBtn:hover { background:#A0833B; text-decoration:none; }
+
+
+/* == input输入区 == */
+.loginInput { float:left; width:270px; height:96px; margin:15px 0 0 0; overflow:hidden; }
+.loginInputIn { float:left; width:268px; height:33px; margin-bottom:12px; background:#FFF; border:1px solid #EEE;  overflow:hidden; } 
+.loginInputIn img { float:left; width:25px; height:25px; margin:4px 0 0 7px; border:0; }
+.loginInputIn input[type="text"] { float:left; width:205px; height:25px; margin:4px 0 0 12px; font-size:14px; font-weight:normal; line-height:25px; color:#666666; border:none; background:none; } 
+.loginInputIn input[type="password"] { float:left; width:205px; height:25px; margin:4px 0 0 12px; font-size:14px; font-weight:normal; line-height:25px; color:#666666; border:none; background:none; } 
+
+
+/* == 勾选按钮 == */
+.loginAbout { float:left; width:100%; }
+.loginAbout label { float:left; cursor:pointer; background: url(../images/chackbox_a.png) 0 0 no-repeat; display:block; height:30px; width:30px; overflow:hidden; } 
+.loginAbout .checked { background: url(../images/chackbox_b.png) 0 0 no-repeat} 
+.loginAbout span { float:left; font-size:14px; font-weight:normal; color:#A07C29; line-height:30px; margin-left:-5px; }
+.loginAbout a { float:right; font-size:14px; text-decoration:underline; font-weight:normal; color:#A07C29; line-height:30px; margin-left:-5px;}
+.loginAbout a:hover { color:#A0833B; }
+
+
+/* == 注册新帐户 == */
+.newAccount { float:left; width:100%; text-align:center; margin-top:10px; font-size:12px; font-weight:normal; color:#999; line-height:25px; }
+
+
+/* == 忘记密码 == */
+.loginText { float:left; width:270px; margin-top:10px; overflow:hidden; }
+.loginText p { float:left; width:100%; margin-bottom:7px; font-size:12px; font-weight:normal; color:#A07C29; line-height:18px; }
+.smallBtn { float:left; margin-top:5px; width:50px; height:24px; text-align:center; background:#C0A355; border:0; font-size:13px; font-weight:normal; color:#FFF; line-height:24px; cursor:pointer; }
+.smallBtn:hover { background:#A0833B; }
+

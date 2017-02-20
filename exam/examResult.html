@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+</head>
+<script type="text/javascript">
+function reExam() {
+    window.location.href = '/exam/exam!doUserExam.action?examId=3287';
+}
+
+function reloadParent() {
+    var parentWin = window.opener;
+    if (parentWin) {
+        if (parentWin.location.href.indexOf('exam/exam!doMyList.action') != -1) {
+            parentWin.location.reload();
+        }
+    }
+}
+window.onbeforeunload = function() {
+    reloadParent();
+}
+</script>
+<script>
+function closewin() {
+    location.href = "../exam/exam.html";
+}
+</script>
+
+<body style="background-color:#000;">
+    <div class="wrapper">
+        <div class="examTitle1">
+            <h1 style="background:black">企业文化测试</h1>
+        </div>
+        <p class="scoreName">获得分数</p>
+        <h2 class="score">25</h2>
+        <p class="scoreSlogan">抱歉，考试及格分数为100分，你没有通过考试</p>
+        <!-- <a href="javascript:void(0);" type="button" class="button" onclick="reExam();" style="width:100px;">再考一次</a> -->
+        <a href="examUser.html" type="button" class="button"   style="width:100px;">再考一次</a>
+        <p class="classTitleP">
+            <a class="button" onclick="closewin();" style="cursor:pointer;">关闭</a></p>
+        <p class="classTitlePhon">
+            <a class="button" onclick="javascript:window.history.go(-1)" style="cursor:pointer;">关闭</a>
+</p>
+    </div>
+</body>
+
+</html>

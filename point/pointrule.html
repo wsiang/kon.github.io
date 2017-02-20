@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function navPhone() {
+        if ($('.navPhone').css('display') == 'none') { //如果是隐藏的
+            $('.navPhone').css('display', 'block'); //显示
+        } else if ($('.navPhone').css('display') == 'block') { //如果是显示的
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+
+    }
+    $(document).ready(function() {
+        $("#point").addClass("nav_hover");
+        $("#pointrule").addClass("two_menu_hover");
+        $("#pointp").addClass("phoneNavOnclick");
+    });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--  头部  -->
+        <!--  头部  -->
+        <header>
+            <div class="headerBox">
+                <div class="logo">
+                    <a href="../index/index.html">
+                        <img src="../h5/images/logo.png">
+                    </a>
+                </div>
+                <nav class="navPhone">
+                    <ul>
+                        <li id="indexliph"><a id="indexp" href="../index/index.html">首页</a></li>
+                        <li id="onlinecourseliph"><a id="onlinecoursep" href="../onlinecourse.html">培训中心</a></li>
+                        <li id="contactliph"><a id="contactp" href="../survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliph"> <a id="newsp" href="../news/news.html">信息中心</a></li>
+                        <li id="pointliph"><a id="pointp" href="../point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="../follow!doList.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <nav class="navPc">
+                    <ul>
+                        <li id="indexliPc"><a id="index" href="../index/index.html">首页</a></li>
+                        <li id="onlinecourseliPc"><a id="onlinecourse" href="../onlinecourse.html">培训中心</a></li>
+                        <li id="contactliPc"><a id="contact" href="../survey/surveyFeedback.html">问卷调查</a></li>
+                        <li id="newsliPc"><a id="news" href="../news/news.html">信息中心</a></li>
+                        <li id="pointliPc"><a id="point" href="../point/gift.html">兑礼中心</a></li>
+                        <li id="followliph"><a href="../follow.html" class="item" title="跟进管理">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <aside>
+                    <a href="javascript:void(0);" onClick="navPhone()" class="message displayNone"><img id="image" src="../h5/images/icon_menu.png"></a>
+                    <a href="../msg/msg.html" class="message">
+                        <div style="vertical-align: top;display: inline-block; width: 35px;height: 28px; background: url(../images/element.png) no-repeat 0px -28px;">
+                            <span id="newMsg" style="display:none;"></span></div>
+                    </a>
+                    <a href="../user/user.html" class="photo"><img src="../images/default_headPhoto.png"></a>
+                    <a href="#" class="exit">[退出]</a>
+                </aside>
+            </div>
+            <script>
+            window.onorientationchange = function() {
+                switch (window.orientation) {
+                    case -90:
+                    case 90:
+                        window.location.reload();
+                        window.location.reload();
+                    case 0:
+                    case 180:
+                        window.location.reload();
+                        break;
+                }
+            }
+            </script>
+            <script type="text/javascript">
+            document.onclick = function(event) {
+                var e = event || window.event;
+                if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image' && (e.srcElement || e.target).id != 'Cmenu1' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu3' && (e.srcElement || e.target).id != 'Cmenu4' && (e.srcElement || e.target).id != 'Cmenu5') {
+
+                    $('.navPhone').css('display', 'none'); //隐藏
+                }
+            }
+            </script>
+        </header>
+        <!--  头部 -End  -
+  <!--  头部 -End  -->
+        <!--  内容  -->
+        <div class="content">
+            <section class="whiteBg_border">
+                <!--二级导航-->
+                <ul class="two_menu">
+                    <li><a id="gift" href="gift.html">礼品柜</a></li>
+                    <li><a id="cart" href="cart.html">购物车</a></li>
+                    <li><a id="pointrule" href="pointrule.html">积分规则</a></li>
+                    <li><a id="pointDetail" href="pointDetail.html">我的积分</a></li>
+                    <li><a id="exchangeOrder" href="exchangeOrder.html">兑换历史</a></li>
+                </ul>
+            </section>
+            <section class="blueBg">
+                <!--课程列表-->
+                <div class="onlineLearn">
+                    <div class="onlineLearn_title">
+                        <h1>积分规则</h1><a href="pointDetail.html" style="float:right; margin-right:30px; color:red;">查看我的积分</a></div>
+                    <div class="onlineLearn_Table">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="radius5" style="min-width:700px;">
+                            <tr>
+                                <th colspan="2">行为</th>
+                                <th>得分项</th>
+                                <th>得分</th>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">登录</td>
+                                <td class="tabletextcenter">登录签到</td>
+                                <td class="tabletextcenter">-每周首次登录</td>
+                                <td class="tabletextcenter">10</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">上传头像</td>
+                                <td class="tabletextcenter">首次上传头像</td>
+                                <td class="tabletextcenter">-首次上传个人标准头像</td>
+                                <td class="tabletextcenter">100</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">学习</td>
+                                <td class="tabletextcenter">在线学习</td>
+                                <td class="tabletextcenter">-在线完成学习课程</td>
+                                <td class="tabletextcenter">100</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td rowspan="4" class="tabletextcenter">考试</td>
+                                <td rowspan="2" class="tabletextcenter">线上学习考试</td>
+                                <td class="tabletextcenter">-考试最高分为100分</td>
+                                <td class="tabletextcenter"> 100</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">-考试最高分为80分-99分</td>
+                                <td class="tabletextcenter">60</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td rowspan="2" class="tabletextcenter">线下培训考试</td>
+                                <td class="tabletextcenter">-考试最高分为100分</td>
+                                <td class="tabletextcenter">100</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">-考试最高分为80分-99分</td>
+                                <td class="tabletextcenter">60</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td rowspan="5" class="tabletextcenter">互动</td>
+                                <td rowspan="2" class="tabletextcenter">成功提交问题</td>
+                                <td class="tabletextcenter">-被置顶/被加精</td>
+                                <td class="tabletextcenter">50</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">-被赞一次</td>
+                                <td class="tabletextcenter">1</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td rowspan="3" class="tabletextcenter">成功提交问题答案</td>
+                                <td class="tabletextcenter">-回答问题</td>
+                                <td class="tabletextcenter">5</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">-被置顶/被加精</td>
+                                <td class="tabletextcenter">50</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">-被赞一次</td>
+                                <td class="tabletextcenter">1</td>
+                            </tr>
+                            <tr class="whiteBg">
+                                <td class="tabletextcenter">调研/签到</td>
+                                <td class="tabletextcenter">评论线下课程</td>
+                                <td class="tabletextcenter">-完整填写问卷</td>
+                                <td class="tabletextcenter">100</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!--  内容 -End  -->
+        <!--  底部  -->
+        <script>
+        var fromUrl = window.location.href;
+        fromUrl = fromUrl.replace("http://", "");
+        var firstIndex = fromUrl.indexOf("/");
+        if (firstIndex != -1) {
+            fromUrl = fromUrl.substr(firstIndex);
+        } else {
+            fromUrl = "/index/index.action";
+        }
+        $("#siteFeedbackLink").attr("href", $("#siteFeedbackLink").attr("href") + "?fromUrl=" + encodeURIComponent(fromUrl));
+
+
+        $('input').placeholder();
+        </script>
+        <div id="forgetfoot" class="forget">
+            <div class="forgetTitle">
+                <h2>联系客服</h2>
+                <a class="close-reveal-modal"></a>
+            </div>
+            <div class="forgetText">
+                <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+                <p>1.发送邮件： A4000@kitchenlife.com.cn</p>
+                <p>2.致电：0512-57701727</p>
+                <p id="time">工作时间：</p>
+                <p id="times">上午09:00-12:30</p>
+                <p id="times">下午13:30-17:30</p>
+            </div>
+        </div>
+        <!--  底部  -->
+        <footer class="fixed">
+            <p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.</p>
+            <aside>
+                <a href="#" title="后台管理">后台管理</a>&nbsp;|
+                <a href="../siteFeedback.html" id="siteFeedbackLink" title="意见反馈">意见反馈&nbsp;&nbsp;</a>|
+                <a target="_blank" href="#" id="xinshouzhinan" title="新手指南">新手指南&nbsp;&nbsp;</a>|
+                <a href="javascript:void(0);" data-reveal-id="forgetfoot">联系客服&nbsp;&nbsp;</a>
+            </aside>
+            <p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+            <!---->
+        </footer>
+        <!--  底部 -End  -->
+        <!--  底部 -End  -->
+    </div>
+</body>
+
+</html>

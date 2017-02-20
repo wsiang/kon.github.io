@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>E-learning在线学习</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="h5/css/all.css" />
+	<script type="text/javascript" src="h5/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="h5/js/jquery.reveal.js"></script><!--弹出框，联系客服-->
+</head>
+	<script src="h5/js/login/jquery.placeholder.js" type="text/javascript"></script> 
+<body class="phoneBgd">
+	<div class="logintop"> </div>
+	<div class="loginLogo">
+		<input id="loginMessage"  name="loginMessage"  type="hidden" value=""/>
+		<form action="#" id="loginForm" name="loginForm" method="post" >
+			<div class="loginLogoBox">
+		    	<span><img src="h5/images/login_logo.png"></span>
+		        <div class="loginTextPC">
+		        	<div class="textBox">
+		            	<h1>登录LOGIN</h1>
+		                <input class="input1 pic"  id="usernamepc" name="username"   type="text"   placeholder="请输入用户名" value="" >
+		                <input class="input2 pic" id="userpwdpc"  name="userpassword"   type="password" placeholder="请输入密码"  value="">
+		                <div class="moreBtn">
+		                	<h4>
+								<input id="keep" type="checkbox" /><p>记住密码</p></h2>
+		                    <a href="javascript:void(0);" data-reveal-id="forget">忘记密码？</a>
+		                </div>
+		                <a class="loginBtn" href="index/index.html"   >登录</a>
+		            </div>
+		    	</div>
+		    </div>
+		  </form>
+	</div>
+
+	<div class="loginTextPhone">
+		<form action="#" id="loginForm" name="loginForm" method="post" >
+		    <div class="textBox">
+		        <h1>登录LOGIN</h1>
+		        <input class="input1" id="usernamephone" type="text" name="username" placeholder="请输入用户名" value="" >
+		        <input class="input2" id="userpwdphone" type="password" name="userpassword" placeholder="请输入密码" value="">
+		        <div class="moreBtn">
+		            <h4><input id="keep" type="checkbox"  /><p>记住密码</p></h2>
+		                    <a href="javascript:void(0);" data-reveal-id="forget">忘记密码？</a>
+		        </div>
+		        <a href="index/index.html"  class="loginBtn">登录</a>
+		    </div>
+		 </form>
+	</div>
+
+	<div class="loginbottom"> </div>
+
+	<div id="forget" class="forget">
+	    <div class="forgetTitle">
+	        <h2>忘记密码提示</h2>
+	        <a class="close-reveal-modal"></a> 
+	    </div>
+	    <div class="forgetText">
+	        <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+	        <p>1.发送邮件：  A4000@kitchenlife.com.cn</p>
+	        <p>2.致电：0512-57701727</p>
+	        <p id="time">工作时间：</p>
+	        <p id="times">上午09:00-12:30</p>
+	        <p id="times">下午13:30-17:30</p>
+	    </div>
+	</div>
+	<footer class="login">
+		<p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.&nbsp;&nbsp;&nbsp;<a id="adminlogin" name="adminlogin" style="color:red;" href="#">管理员入口</a></p>
+		<p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+	</footer>
+</body>
+
+<script>
+
+	var fromUrl='null';
+	function validateUser(){
+
+        if($(".loginTextPhone").is(":visible")){
+           $("#usernamepc").val($("#usernamephone").val() );
+           $("#userpwdpc").val($("#userpwdphone").val() ) ;
+        }
+
+		var username=$.trim($("#usernamepc").val() );
+		var userpwd=$.trim($("#userpwdpc").val() );
+		
+		if(username=="" || username=="用户名"){
+			alert('用户名不能为空!');
+			$("input[name='username']").focus();
+			return false;
+		}
+		
+		if(userpwd=="" || userpwd=="密码"){
+			alert('密码不能为空!');
+			$("input[name='userpassword']").focus();
+			return false;
+		}
+		
+		var keep = $('#keep')[0].checked;
+		$.ajax({
+			type:"post",
+			cache:false,
+			url:"/login.action",
+			dataType:"json",
+			data:{"username":username,"userpassword":userpwd,certificate : keep},
+			success:function(json){
+			if(json.success){
+					if(json.obj=='loginMessage'){
+						location.href="/www/user/highLogin.jsp";
+					}else{
+						fromUrlRedirect();
+					}
+					
+			  	}else{
+					if(json.msg==undefined || json.msg==''){
+						alert('用户名或密码错误！');
+					}else{
+						alert(json.msg);
+					}
+				}
+			}
+		});
+		return false;		
+	}
+	
+	function fromUrlRedirect(){
+		if(fromUrl!='null' && fromUrl!=''){
+			location.href=fromUrl;
+		}else{
+			location.href="/index/index.action";
+		}
+	}
+		
+		
+    $(function() { 
+		if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+			  $("#adminlogin").hide();
+		}else {
+			 $("#adminlogin").show();
+		}
+
+    	/* var loginMessage=$("#loginMessage").val();
+    	if(loginMessage=="login"){
+    		alert("现在课堂学习人员已满,请稍后再试");
+    	} */
+		$(".save_password").off("click").on("click", function() {
+			if (!$(this).hasClass("checked")) { 
+                $(this).addClass("checked"); 
+				$('#keep')[0].checked = true;
+            } else { 
+                $(this).removeClass("checked"); 
+				$('#keep')[0].checked = false;
+            }				
+		});
+		
+		$(".forget_pwd").off("click").on("click", function(event) {
+			event.preventDefault();
+			$(".login_normal").hide();
+			$(".forget_pwd_info").show();
+		});
+				
+		$(".forget_pwd_return").off("click").on("click", function() {
+			$(".login_normal").show();
+			$(".forget_pwd_info").hide();
+		});
+								
+		$(document).on("keydown", function(e){
+			if(e.keyCode == 13)
+			{
+				validateUser();
+			}
+		});	
+		
+    }); 
+    
+    $('.pic').placeholder();
+</script>
+</html>

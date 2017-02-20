@@ -1,0 +1,181 @@
+﻿.fn_24_h{height:24px; clear:both;}
+.fnLeft{ float:left; }
+.fnRight{float:right;}
+.fnClear{ clear:both;}
+.fn_h20{ height:20px;}
+.classCation{ width:982px; margin:0 auto;}
+.classCover{width:350px;text-align:center;}
+.classBtn{ text-align:center;}
+.goExamBtn{ width:76px; height:32px; cursor:pointer;}
+.goExamBtn{  border:none; color:#fff; font-size:20px; font-family:"微软雅黑"; margin-top:10px; font-weight:normal;}
+.classDetail{width:606px; }
+.classTitle{color:#333333; font-size:30px; margin-top:20px; margin-bottom:15px; font-weight:normal;}
+.classList li{margin-bottom:15px; padding-bottom:15px;border-bottom:1px dashed #dddddd; }
+.classList li.lastList{border:none;}
+.classList li p{display:inline-block;*display:inline;*zoom:1; font-size:16px; color:#666666;}
+.classList li p.lastTime{margin-top:8px;}
+.classList li p.list_1{width:216px;}
+.classList li p.list_2{width:190px;}
+.classList li p.list_3{width:190px;}                                                                                                                                                                                                                                                                                                                                                                                                                                          
+.praiseIcon{background:url(../images/heartIcon.png) no-repeat 0px 3px; padding-left:20px;}
+.theCur{color:#c0a355;}
+.allListTitle{font-size:20px; margin-bottom:10px;}
+.allClass{width:702px;}
+.allTable{width:700px;border:1px solid #cecece; border-top:2px solid #c0a355; height:389px;}
+.classComment{width:270px;}
+.classComBox{ border:1px solid #cecece; border-top:2px solid #c0a355; background-color:#f2f2f2; padding:8px 5px 20px 5px; height:360px;}
+.classComarea{width:253px; height:75px; padding-left:3px; padding-top:3px;}
+.com_BtnList{ text-align:right; margin-top:5px;}
+.com_detail{max-height:250px; overflow:hidden; overflow-y:scroll; margin-top:5px;}
+.com_detaItem{margin-top:20px;}
+.com_firstItem{margin-top:5px;}
+.com_Btn{border:none; color:#676767; font-size:12px;height:24px; cursor:pointer;}
+.com_Canel{ background:none; margin-right:5px;}
+.com_Canel:hover{color:#ff0000;}
+.com_Sure{background:url(../images/cover_ele_class.png) no-repeat 0px -33px; width:59px;}
+.com_Sure:hover{background:url(../images/cover_ele_class.png) no-repeat -62px -33px; color:#fff;}
+.com_people{ min-height:32px;}
+.com_people img{float:left;width:32px; height:32px;}
+.com_people .com_name{ float:left;width:200px; margin-left:5px;color:#676767;}
+.com_sendFont{color:#676767;}
+.com_name{ vertical-align:top;}
+.com_Info{margin-top:5px; color:#676767;}
+.com_Record{text-align:right; margin-top:3px;}
+.com_Time{color:#676767;}
+.com_Del{color:#2525ff; text-decoration:underline; cursor:pointer; margin-left:5px; margin-right:5px;}
+.com_Send{color:#2525ff;cursor:pointer;text-decoration:underline;}
+.com_back{color:#2055c0;cursor:pointer;}
+.com_Del:hover{color:#ff0000;}
+.com_Send:hover,.com_back:hover{color:#c0a355;}
+.com_other{padding-left:15px; margin-top:28px;}
+.com_other .com_name{color:#2525ff;width:185px;}
+.com_other .classComarea{width:220px; height:50px; margin-top:8px;}
+.com_other .com_BtnList{padding-right:0px;}
+.comHide{display:none;}
+
+
+/***
+    修改：头部
+***/
+.header_news{*display:inline;*zoom:1;}
+.portrait{*display:inline;*zoom:1;}
+.searchBtn{*display:inline;*zoom:1;}
+.searchText{*display:inline;*zoom:1; height:27px; line-height:27px;}
+.searchBox {*display:inline;*zoom:1;}
+.nav li .item {*display:inline;*zoom:1;}
+.ye_q_main{border:0px;}
+.ye_q_main1{ background:url(../images/question_top_border.png) no-repeat; width:795px; height:30px;border-radius:0px; }
+.ye_q_main2{border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6;}
+.ye_q_main2_1{border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; border-bottom:0px;}
+.ye_q_main2_0{border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6;}
+
+
+/*
+ *  播放器:学习页  
+ *  online_reader.asp
+*/
+.readcation{width:1002px; height:679px; margin:0 auto;}
+.readBox{width:1002px;}
+.readComBox{width:305px; height:679px;  position:fixed; right:-270px; top:76px;}
+*+html .readComBox{top:73px;}
+.readComMain{width:305px; height:679px; position:relative;}
+.readComBtn{width:36px; height:90px; background:url(../images/read_com_btnEle.png) no-repeat; position:absolute; left:2px; top:300px; cursor:pointer;}
+.readComBtn:hover,.readbtnCur{ background-position:0 -91px;}
+.readComCon{width:268px; height:679px;background:url(../images/read_com_bg.png) repeat-y;  position:absolute; right:0px; overflow:hidden;}
+.readComCount{margin-top:5px; position:relative; height:26px;}
+.readComCount .readComSend{background: url(../images/cover_ele_class.png) no-repeat 0px -33px;width: 59px;height: 24px; border:none; position:absolute; right:0px; top:0px; cursor:pointer;}
+.readComCount .readComSend:hover{background: url(../images/cover_ele_class.png) no-repeat -62px -33px;color: #fff;}
+.readComCount span{ vertical-align:top; display:block; padding-top:5px; font-size:12px; color:#676767;}
+.readArea{width:100%; height:45px; border:1px solid #c0a355; padding-left:3px; padding-top:3px;}
+.readComDetai{margin:0 auto; padding-top:17px; padding-left:15px;}
+.readComTime{ text-align:right; margin-bottom:10px;font-size:12px; color:#676767; font-family:Arial}
+.readComList{width:100%; margin:0 auto;height:555px; overflow:auto;}
+.readComList li{ border-bottom:1px dashed #c0a355; padding-bottom:15px; margin-top:15px;}
+.readComList li .com_people img{ width:32px; height:32px; display:inline-block; margin-right:5px;}
+.readComList li .com_people .readComFont{ width:195px; display:inline-block; position:relative;}
+.readComList li .com_people .readComFont .com_name{ display:block; float:none; width:120px; margin-left:0px; margin-bottom:5px;}
+.com_delList{ position:absolute; right:0px; top:0px; color:#2055c0; cursor:pointer;}
+.com_delList:hover{ text-decoration:underline; color:#ff0000;}
+.user{overflow-x:hidden;}
+
+
+/***
+    考试测试
+***/
+.ex_testBox{width:800px; margin:0 auto;}
+.ex_title{ font-size:24px; color:#333333; text-align:center; margin-bottom:35px; padding-top:25px; }
+.ex_class{ border-bottom:1px dashed #dddddd; padding-bottom:22px;}
+.ex_timeIcon{background: url(../images/y_time_icon.png) no-repeat; width:19px; height:19px; display:inline-block; *display:inline;*zoom:1; margin-top:3px; margin-right:5px;vertical-align: top;}
+.ex_timeDown{ display:inline-block; width:50%; font-size:18px; color:#c0a354; height:24px;vertical-align: top;*display:inline;*zoom:1;}
+.ex_theTime{color:#f95328;vertical-align: top;}
+.ex_thePic{ display:inline-block;*display:inline;*zoom:1; text-align:right; width:49%;}
+.ex_coutBg{width:64px; height:23px;background: url(../images/y_online_eleBtn.png) no-repeat; display:inline-block;*display:inline;*zoom:1; text-align:center; font-size:16px; color:#fff;}
+.ex_quseItem{max-height:350px; margin-top:20px;}
+.ex_quseChoose{overflow:hidden; overflow-y:auto; max-height:350px;}
+.ex_qusetitle{ font-size:18px; color:#333333;}
+.ex_quseChoose{}
+.ex_quseRadio{ display:block; font-size:18px; color:#333333; margin-top:24px; padding-left:8px;}
+.ex_raidoItem{ margin-right:4px;}
+.ex_btnList{ text-align:center; margin-top:65px; margin-bottom:25px; }
+.ex_btn{ background: url(../images/y_online_eleBtn.png) no-repeat; width:128px; height:35px; border:none; cursor:pointer;font-size:18px; color:#ffffff;}
+.ex_preBtn{ background-position:0 -60px; margin-right:130px;}
+.ex_nextBtn{background-position:0 -60px;}
+.ex_studyBtn{background-position:0 -60px;}
+.ex_btnNor{background-position:0 -24px;}
+.ex_aginBtn{background-position:0 -96px; margin-right:130px;}
+
+/***
+   考试通过    
+***/
+.ex_theResult{width:1002px; height:503px; margin:0 auto;}
+.ex_loseExam{ background:url(../images/y_onlinepass_exame.jpg) no-repeat;}
+.ex_passExam{ background:url(../images/y_onlinepass_exame.jpg) no-repeat;}
+.ex_score{ font-size:110px; font-family:Arial; color:#fbf1ab; text-align:center; height:127px; margin-top:75px;}
+.ex_evaltxt{ font-size:18px; color:#333333; background-color:#fff8d3; width:434px; height:35px; text-align:center; line-height:35px; margin:0 auto; margin-top:75px}
+.ex_theResult .ex_testBox .ex_btnList{ margin-top:25px;}
+.ex_loseExam .ex_score{ color:#e5debf}
+.ex_titTopName{ text-align:center; padding-top:35px; margin-bottom:24px;}
+.ex_theResult .ex_title{ background:#c0a354; display:inline-block; padding:0px; margin:0px; font-size:20px; height:37px; vertical-align:top;padding-left:15px; padding-right:15px;}
+.ex_titLeft{ display:inline-block;*display:inline;*zoom:1; background : url(../images/y_scole_top.png) no-repeat; height:37px; width:8px;}
+.ex_titRight{display:inline-block;*display:inline;*zoom:1;background: url(../images/y_scole_top.png) no-repeat -11px 0; height:37px; width:8px;}
+.ex_titFont{display:inline-block;*display:inline;*zoom:1;line-height:37px; }
+.ex_LeftIcon{display:inline-block;*display:inline;*zoom:1;height:9px; width:9px;background: url(../images/y_scole_Icon.png) no-repeat; margin-right:10px; vertical-align:top; margin-top:15px;}
+.ex_RightIcon{display:inline-block;*display:inline;*zoom:1;height:9px; width:9px;background: url(../images/y_scole_Icon.png) no-repeat; margin-left:10px; vertical-align:top; margin-top:15px;}
+.ex_theResult .ex_score{ background: url(../images/y_scole_numbg.png) no-repeat; width:260px; height:225px; margin:0 auto; padding-top:35px;}
+.ex_scoreTit{ font-size:20px; color:#916e0e; display:block; padding-top:25px;}
+.ex_scoreNum{ font-size:90px; color:#916e0e; font-weight:bold;}
+.ex_testBox .ex_evaltxt{ margin-top:10px; color:#fff; background:none;}
+
+/**
+    排行榜
+**/
+.ran_listTab{}
+.ran_listTab .ran_item{ display:inline-block; *display:inline; *zoom:1; width:67px; height:24px; margin-right:1px; background:url(../images/y_online_eleBtn.png) no-repeat 0 -133px; }
+.ran_listTab .ran_item.ran_cur{background:url(../images/y_online_eleBtn.png) no-repeat 0 -159px;}
+.ran_listTab .ran_item a{ display:block; width:100%; height:100%; line-height:24px; text-align:center;color:#848484; font-size:14px;}
+.ran_listTab .ran_item.ran_cur a{ color:#c0a354; font-size:14px;}
+.ran_main2{border:1px solid #d9d9d9}
+.ran_allList{width:764px; margin:0 auto; padding-bottom:10px;}
+.ran_allList .item{ line-height:33px; }
+.ran_allList .item span{ display:inline-block; *display:inline;*zoom:1; text-align:center;}
+.ran_list_1{width:60px;}
+.ran_list_2{width:86px;}
+.ran_list_3{width:90px;}
+.ran_list_4{width:96px;}
+.ran_list_5{width:110px;}
+.ran_list_6{width:170px;}
+.ran_list_7{width:130px;}
+.ran_allList li{ position:relative;}
+.ran_allList li.itemOdd{ background-color:#ececec;}
+.ran_allList li .ran_cityRan{ cursor:pointer; text-decoration:underline; color:#cc4a4a;}
+.ran_allList li .ran_cityRan:hover{color:#548fd5;}
+.ran_allList li .ran_cityCur{color:#548fd5;}
+.ran_allList li.ran_itemTop{ height:42px;background-color:#f4eed9; line-height:42px; color:#000000; font-size:12px; font-weight:bold;}
+.ran_city{ border:1px solid #d9d9d9; width:720px; margin:0 auto; margin-top:10px; display:none; }
+.ran_topLine{background: url(../images/icon_curTab.png) no-repeat 90% top;width:720px;  height:9px; position:absolute; top:36px;}
+.ran_allList li.itemOdd .ran_topLine{background: url(../images/icon_curTab_odd.png) no-repeat 90% top;width:720px; height:9px; position:absolute; top:36px;}
+.ran_cityTable{width:98%; margin:0 auto; text-align:center;}
+.ran_cityTable tr th{padding:0 15px; background:#ececec;color:#000000; font-size:12px; font-weight:bold;}
+.ran_allList li.itemOdd  .ran_cityTable tr th{background:#fff;}
+.ran_cityTable tr td{border-bottom:1px solid #d9d9d9}
+.ran_cityTable tr.ran_lastTd td{border:none;}

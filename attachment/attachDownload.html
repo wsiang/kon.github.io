@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>E-learning在线学习</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--  <link rel="stylesheet" type="text/css" href="../h5/css/all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../h5/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenSmall.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenMedium.css" />
+    <link rel="stylesheet" type="text/css" href="../h5/css/screenBig.css" />
+    <script type="text/javascript" src="../h5/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../h5/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="../h5/js/jquery.reveal.js"></script>
+    <!--弹出框，联系客服-->
+    <script type="text/javascript" src="../h5/laydate/laydate.js"></script>
+    <script>
+    $(function() {
+        $('input[type="text"]').placeholder();
+    });
+    </script>
+    <script src="../scripts/jquery.placeholder.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function navPhone() {
+        if ($('.navPhone').css('display') == 'none') { //如果是隐藏的
+            $('.navPhone').css('display', 'block'); //显示
+        } else if ($('.navPhone').css('display') == 'block') { //如果是显示的
+            $('.navPhone').css('display', 'none'); //隐藏
+        }
+
+    }
+    $(document).ready(function() {
+        $("#onlinecourse").addClass("nav_hover");
+        $("#onlinecoursep").addClass("phoneNavOnclick");
+    });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#tabletest tr:even").addClass("whiteBg");
+        $("#tabletest tr:odd").addClass("tdBlueBg");
+    });
+    </script>
+    <script>
+    function getCriteria() {
+        var param = '';
+
+
+
+        return param;
+    }
+
+    var url = '';
+
+    $(function() {
+
+        $('#btnSearch').click(function() {
+
+            window.location = getSearchUrl();
+
+        });
+
+        var requesttype = $('#requesttype').val();
+        if (requesttype == "all")
+            url = '/attachment/attachment!doAttachmentList.action?';
+        if (requesttype == "read")
+            url = '/attachment/attachment!doReadList.action?';
+        if (requesttype == "download")
+            url = '/attachment/attachment!doDownloadList.action?';
+        var vsort = "";
+
+        if (vsort != "")
+            $('#sort').val(vsort);
+
+
+        $('#sort').change(function() {
+            window.location = getSearchUrl();
+
+        });
+        $('input[type="text"]').placeholder();
+
+
+
+    });
+
+
+
+    function recommend(attachmentId, ac) {
+        var actionUrl = '/attachment/attachment!' + ac + '.action';
+
+        $.ajax({
+            url: actionUrl,
+            type: "get",
+            data: {
+                "attachmentId": attachmentId
+            },
+            dataType: "json",
+            success: function(data) {
+
+                if (data.success) {
+                    window.location = url;
+                } else {
+                    alert(data.msg);
+                }
+
+            }
+
+        });
+
+    }
+
+    function view(id) {
+        var aa = $(this).hasClass("btnCon");
+
+        if (!aa) {
+            window.open('/attachment/attachment!play.action?id=' + id);
+        }
+
+    }
+
+    function getSearchUrl() {
+
+
+        url += 'orderBy=' + $('#sort').val();
+
+        var q = $('#q').val();
+
+        if (q != '' && q != '请输入资料名称') {
+            url += '&indexSearchKeyword=' + q;
+        }
+
+        return url;
+    }
+    </script>
+    <script>
+    function isPc() {
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function lookdata(id) {
+
+        if (isPc()) {
+            window.open('/attachment/attachment!play.action?id=' + id);
+            $('.closeBtn').click();
+        } else {
+            window.location.href = '/attachment/attachment!play.action?id=' + id;
+        }
+
+    }
+    </script>
+</head>
+
+<body class="user" curPage="2_4_1" queryUrl="/attachment/attachment!doAttachmentList.action" <div class="wrapper">
+    <!--  头部  -->
+    <!--  头部  -->
+    <header>
+        <div class="headerBox">
+            <div class="headerBox">
+                <div class="logo">
+                    <a href="../index/index.html">
+                        <img src="../h5/images/logo.png">
+                    </a>
+                </div>
+                <nav class="navPhone">
+                    <ul>
+                        <li id="indexliph">
+                            <a id="indexp" href=../index/index.html ">首页</a></li>
+                        <li id="onlinecourseliph "><a id="onlinecoursep " href="../onlinecourse.html ">培训中心</a></li>
+                        <li id="contactliph "><a id="contactp " href="../survey/surveyFeedback.html ">问卷调查</a></li>
+                        <li id="newsliph "> <a id="newsp " href="../news/news.html ">信息中心</a></li>
+                        <li id="pointliph "><a id="pointp " href="../point/gift.html ">兑礼中心</a></li>
+                        <li id="followliph "><a href="../follow.html " class="item " title="跟进管理 ">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <nav class="navPc ">
+                    <ul>
+                        <li id="indexliPc "><a id="index " href="../index/index.html ">首页</a></li>
+                        <li id="onlinecourseliPc "><a id="onlinecourse" href="../onlinecourse.html">培训中心</a></li>
+                        <li id="contactliPc "><a id="contact " href="../survey/surveyFeedback.html ">问卷调查</a></li>
+                        <li id="newsliPc "><a id="news " href="../news/news.html ">信息中心</a></li>
+                        <li id="pointliPc "><a id="point " href="../point/gift.html ">兑礼中心</a></li>
+                        <li id="followliph "><a href="../follow.html " class="item " title="跟进管理 ">跟进管理</a></li>
+                    </ul>
+                </nav>
+                <aside>
+                    <a href="javascript:void(0); " onClick="navPhone() " class="message displayNone "><img id="image " src="../h5/images/icon_menu.png "></a>
+                    <a href="../msg/msg.html " class="message ">
+                        <div style="vertical-align: top;display: inline-block; width: 35px;height: 28px; background: url(../images/element.png) no-repeat 0px -28px; ">
+                            <span id="newMsg " style="display:none; "></span></div>
+                    </a>
+                    <a href="../user/user.html " class="photo "><img src="../images/default_headPhoto.png "></a>
+                    <a href="# " class="exit ">[退出]</a>
+                </aside>
+            </div>
+        <script>
+        window.onorientationchange = function() {
+            switch (window.orientation) {
+                case -90:
+                case 90:
+                    window.location.reload();
+                    window.location.reload();
+                case 0:
+                case 180:
+                    window.location.reload();
+                    break;
+            }
+        }
+        </script>
+        <script type="text/javascript ">
+        document.onclick = function(event) {
+            var e = event || window.event;
+            if ((e.srcElement || e.target).parentNode.parentNode.id != 'menu' && (e.srcElement || e.target).id != 'menu' && (e.srcElement || e.target).id != 'image' && (e.srcElement || e.target).id != 'Cmenu1' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu2' && (e.srcElement || e.target).id != 'Cmenu3' && (e.srcElement || e.target).id != 'Cmenu4' && (e.srcElement || e.target).id != 'Cmenu5') {
+
+                $('.navPhone').css('display', 'none'); //隐藏
+            }
+        }
+        </script>
+    </header>
+    <!--  头部 -End  -
+  <!--  头部 -End  -->
+    <!--  内容  -->
+    <div class="content_D ">
+        <section class="whiteBg_border ">
+            <!--二级导航-->
+            <ul class="two_menu ">
+                <li><a href="../onlinecourse.html ">在线学习</a></li>
+                <li><a href="../exam/exam.html ">在线考试</a></li>
+                <li><a href="attachment.html " class="two_menu_hover ">学习资料</a></li>
+            </ul>
+        </section>
+        <div class="blueBg ">
+            <!--切页-->
+            <script language="JavaScript " type="text/javascript ">
+            function showD(tabname) {
+
+                document.getElementById('Amenu1').className = 'A1';
+                document.getElementById('Amenu2').className = 'A2';
+                document.getElementById('Amenu3').className = 'A3';
+                document.getElementById('Amenu' + tabname).className = 'B_on';
+            }
+            </script>
+            <div class="onlineTest ">
+                <div class="onlineTest_Nav ">
+                    <a href="attachment.html">
+                        <div id="Amenu3" class="A3">
+                            阅读</div>
+                    </a>
+                    <a href="attachDownload.html">
+                        <div id="Amenu2" class="A_on">下载</div>
+                    </a>
+                    <a href="attachment.html">
+                        <div id="Amenu1" class="A1">全部</div>
+                    </a>
+                </div>
+            </div>
+            <div class="clear "></div>
+            <div id="A1 " style="display:block; " class="onlineTest_List ">
+                <form action="/attachment/attachment!doAttachmentList.action " id="searchForm " method="post ">
+                    <section class="whiteBg_border0 ">
+                        <!--搜索-->
+                        <ul class="search ">
+                            <li>
+                                <h6>关键字：</h6>
+                                <input type="text " name="q " value="" id='q' placeholder="请输入资料名称" />
+                            </li>
+                            <li>
+                                <h6> </h6><a href="javascript:void(0); " class="search_btn radius5 " id='btnSearch'>搜索</a></li>
+                        </ul>
+                    </section>
+                </form>
+                <div class="blueBg ">
+                    <!--第二部分列表--为了适应小屏幕手机浏览效果，表格内容建议一屏最多显示6到7行-->
+                    <div class="onlineLearn ">
+                        <div class="onlineLearn_title ">
+                            <h1>资料列表</h1>
+                            <div class="operationBtn ">
+                                <select id='sort' name="orderBy ">
+                                    <option value="uploadTime-desc ">按最新上传</option>
+                                    <option value="readTimes-desc ">按查看数</option>
+                                    <option value="avgScore-desc ">按得分数</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="onlineLearn_Table ">
+                            <input type="hidden" id="requesttype " value="all " />
+                            <table width="100% " border="0 " cellspacing="0 " cellpadding="0 " class="radius5 " style="min-width:700px; " id="tabletest ">
+                                <tr>
+                                    <th class="tdMinWidth ">操作</th>
+                                    <th>资料名称</th>
+                                    <th>资料类型</th>
+                                    <th>上传时间</th>
+                                    <th class="tdMinWidth ">得分</th>
+                                    <th>查看次数</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="viewAttachment.html" class="radius5 btn_common1 btn_start " target="_blank ">查看资料</a>
+                                        <a class="radius5 btn_look btn_common1 " title="设为置顶 " href="javascript:recommend( '3223', 'recommend') ">设为置顶</a>
+                                    </td>
+                                    <td>新进人员安全告知书</td>
+                                    <td class="tabletextcenter ">阅读</td>
+                                    <td class="tabletextcenter ">2016-09-23</td>
+                                    <td class="iconStar ">
+                                        暂无评分
+                                    </td>
+                                    <td class="tabletextcenter ">0</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="viewAttachment.html" class="radius5 btn_common1 btn_start " target="_blank ">查看资料2</a>
+                                        <a class="radius5 btn_look btn_common1 " title="设为置顶 " href="javascript:recommend( '3223', 'recommend') ">设为置顶</a>
+                                    </td>
+                                    <td>新进人员安全告知书</td>
+                                    <td class="tabletextcenter ">阅读</td>
+                                    <td class="tabletextcenter ">2016-09-23</td>
+                                    <td class="iconStar ">
+                                        暂无评分
+                                    </td>
+                                    <td class="tabletextcenter ">0</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- pagesBox start -->
+                        <!-- pagesBox end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  内容 -End  -->
+        <script>
+        var fromUrl = window.location.href;
+        fromUrl = fromUrl.replace("http:// ", " ");
+        var firstIndex = fromUrl.indexOf("/ ");
+        if (firstIndex != -1) {
+            fromUrl = fromUrl.substr(firstIndex);
+        } else {
+            fromUrl = "/index/index.action ";
+        }
+        $("#siteFeedbackLink ").attr("href ", $("#siteFeedbackLink ").attr("href ") + "?fromUrl=" + encodeURIComponent(fromUrl));
+
+
+        $('input').placeholder();
+        </script>
+        <div id=" forgetfoot " class="forget ">
+            <div class="forgetTitle ">
+                <h2>联系客服</h2>
+                <a class="close-reveal-modal "></a>
+            </div>
+            <div class="forgetText ">
+                <h1>亲爱的学员，如您有平台使用上的疑问，可通过以下方式联系客服!</h1>
+                <p>1.发送邮件： A4000@kitchenlife.com.cn</p>
+                <p>2.致电：0512-57701727</p>
+                <p id="time ">工作时间：</p>
+                <p id="times ">上午09:00-12:30</p>
+                <p id="times ">下午13:30-17:30</p>
+            </div>
+        </div>
+        <!--  底部  -->
+        <footer class="fixed ">
+            <p>©Copyright 本网站版权为樱花卫厨(中国)股份有限公司所有.</p>
+            <aside>
+                <a href="#" title="后台管理 ">后台管理</a>&nbsp;|
+                <a href="../siteFeedback.html " id="siteFeedbackLink " title="意见反馈 ">意见反馈&nbsp;&nbsp;</a>|
+                <a target="_blank " href="../video.html" id="xinshouzhinan " title="新手指南 ">新手指南&nbsp;&nbsp;</a>|
+                <a href="javascript:void(0); " data-reveal-id="forgetfoot ">联系客服&nbsp;&nbsp;</a>
+            </aside>
+            <p>所有资料仅供樱花卫厨(中国)股份有限公司内部使用，如有外传，将追究法律责任</p>
+            <!---->
+        </footer>
+        <!--  底部 -End  -->
+    </div>
+</body>
+
+</html>

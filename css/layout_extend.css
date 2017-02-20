@@ -1,0 +1,20 @@
+@charset "utf-8";
+/********************************
+ * 自定义样式
+ ********************************/
+ 
+ 
+/*
+ *  课件播放、游戏播放页面标题header样式
+*/
+.readBox {background: none repeat scroll 0 0 #fcfaf3;border: 1px solid #ebdbb6;}
+.readBox_head {padding:20px 20px 0;margin-bottom: 10px;height: 50px;}
+.readBox_tit {color:#806242;font-size:20px;text-align:center;font-weight:bold;}
+.readBox .praiseIcon {color:#806242;text-align:right;float:right;}
+
+/*
+ *  课程评论分隔线
+*/
+.comFirst{border-bottom:1px dashed #ccc;}
+.com_other{ border-top:0;border-bottom:1px dashed #ccc; }
+
